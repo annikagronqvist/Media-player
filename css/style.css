@@ -34,7 +34,7 @@ i {
 /* Center the icons in the button row and add spacing */
 .icon-row {
     justify-content: center; /* Center the buttons */
-    gap: 20px; /* Space between buttons (you can adjust this value) */
+    gap: 30px; /* Space between buttons (you can adjust this value) */
 }
 
 /* Remove default margins for buttons */
