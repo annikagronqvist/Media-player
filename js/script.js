@@ -23,10 +23,10 @@ const songList = [
 // Log songList to check if paths are correct
 console.log(songList);
 
-// Select the audio player and play button
+// Select the audio player and play/pause buttons
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.querySelector(".fa-play"); // Play button icon
-const pauseButton = document.querySelector(".fa-pause"); // Pause button icon
+const playButton = document.getElementById("play-button"); // Play button
+const pauseButton = document.getElementById("pause-button"); // Pause button
 
 // Load the first song in the list
 audioPlayer.src = songList[0].soundSrc;
@@ -40,7 +40,11 @@ if (playButton && pauseButton) { // Ensure both buttons are selected
             console.log("Playing audio");
             playButton.style.display = "none"; // Hide play icon
             pauseButton.style.display = "inline"; // Show pause icon
-        } else {
+        }
+    });
+
+    pauseButton.addEventListener("click", function() {
+        if (!audioPlayer.paused) {
             audioPlayer.pause(); // Pause if playing
             console.log("Pausing audio");
             playButton.style.display = "inline"; // Show play icon
