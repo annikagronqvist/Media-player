@@ -26,6 +26,7 @@ console.log(songList);
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.querySelector(".fa-play"); // Play button icon
+console.log(playButton);
 
 // Load the first song in the list
 audioPlayer.src = songList[0].soundSrc; // Set the initial song
