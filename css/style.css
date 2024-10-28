@@ -3,7 +3,7 @@ body {
 	margin: 0;
 }
 
-*{
+* {
 	box-sizing: border-box;
 }
 
@@ -20,7 +20,6 @@ i {
 	width: 500px;
 	border: 1px solid lightgrey;
 	padding: 15px;
-
 }
 
 .content-row {
@@ -32,8 +31,15 @@ i {
 	padding: 20px;
 }
 
+/* Change this to center the icons */
 .icon-row {
-	justify-content: space-between;
+	justify-content: center; /* Change this to center */
+}
+
+/* Add this to give play button a fixed space */
+.icon-row .fa-play, 
+.icon-row .fa-pause {
+    margin: 0 10px; /* Space between the buttons */
 }
 
 .now-playing {
@@ -58,4 +64,3 @@ i {
 .width-100 {
 	width: 100%;
 }
-
