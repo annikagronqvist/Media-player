@@ -25,45 +25,55 @@ console.log(songList);
 
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.querySelector(".fa-play"); // Play button icon
-let currentSongIndex = 0; // Track the currently playing song index
+const playButton = document.getElementById("play-button"); // Play button icon
+const pauseButton = document.getElementById("pause-button"); // Pause button icon
+let currentSongIndex = 0; // To keep track of the current song index
 
 // Load the first song in the list
-audioPlayer.src = songList[currentSongIndex].soundSrc;
-console.log("Current song source:", audioPlayer.src);
+loadCurrentSong(); // Call this function to load the first song when the page loads
+
+// Function to load the current song based on currentSongIndex
+function loadCurrentSong() {
+    audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
+    audioPlayer.play(); // Start playing the audio
+    console.log("Now playing:", songList[currentSongIndex].name);
+}
 
 // Play/pause functionality for the play button
-if (playButton) { // Only if playButton is successfully selected
-    playButton.addEventListener("click", function() {
-        if (audioPlayer.paused) {
-            audioPlayer.play(); // Play if paused
-            console.log("Playing audio");
-        } else {
-            audioPlayer.pause(); // Pause if playing
-            console.log("Pausing audio");
-        }
-    });
-} else {
-    console.error("Play button not found in the HTML.");
+function togglePlay() {
+    if (audioPlayer.paused) {
+        audioPlayer.play(); // Play if paused
+        playButton.style.display = "none"; // Hide play button
+        pauseButton.style.display = "inline"; // Show pause button
+        console.log("Playing audio");
+    } else {
+        audioPlayer.pause(); // Pause if playing
+        playButton.style.display = "inline"; // Show play button
+        pauseButton.style.display = "none"; // Hide pause button
+        console.log("Pausing audio");
+    }
 }
 
 // Function to play the previous song
 function playPrevious() {
-    // Decrease the index by 1
-    currentSongIndex--;
+    currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length; // Loop back to the last song
+    loadCurrentSong(); // Load and play the new current song
+}
 
-    // If the index is less than 0, wrap around to the last song
-    if (currentSongIndex < 0) {
-        currentSongIndex = songList.length - 1; // Go to last song
-    }
-
-    // Load and play the previous song
-    audioPlayer.src = songList[currentSongIndex].soundSrc;
-    audioPlayer.play();
-    console.log("Playing previous song:", songList[currentSongIndex].name);
+// Function to play the next song
+function playNext() {
+    currentSongIndex = (currentSongIndex + 1) % songList.length; // Loop to the first song if at the end
+    loadCurrentSong(); // Load and play the new current song
 }
 
 // Listen for when the audio ends to log that event
 audioPlayer.addEventListener("ended", function() {
     console.log("Audio has ended.");
+    playNext(); // Automatically play the next song when the current song ends
+});
+
+// Set up volume control (optional)
+const volumeControl = document.getElementById("volume-control");
+volumeControl.addEventListener("input", function() {
+    audioPlayer.volume = volumeControl.value; // Set audio volume based on range input
 });
