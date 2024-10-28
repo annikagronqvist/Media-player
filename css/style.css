@@ -1,5 +1,5 @@
 body {
-	padding: 0;
+	padding:0;
 	margin: 0;
 }
 
@@ -31,14 +31,15 @@ i {
 	padding: 20px;
 }
 
-/* Center the icons and space them evenly */
+/* Center the icons in the button row */
 .icon-row {
-	justify-content: space-around; /* Spread icons evenly */
+	justify-content: center; /* Change this to center */
 }
 
-/* Add margin for all icons in the icon-row */
-.icon-row i {
-    margin: 0 10px; /* Space between all buttons */
+/* Add spacing between the buttons */
+.icon-row .fa-play, 
+.icon-row .fa-pause {
+    margin: 0 10px; /* Space between the buttons */
 }
 
 .now-playing {
