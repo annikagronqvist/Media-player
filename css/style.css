@@ -34,23 +34,12 @@ i {
 /* Center the icons in the button row and add spacing */
 .icon-row {
     justify-content: center; /* Center the buttons */
-    gap: 15px; /* Space between buttons */
+    gap: 20px; /* Space between buttons (you can adjust this value) */
 }
 
-/* Add spacing around the play and pause buttons specifically */
-.icon-row .fa-play,
-.icon-row .fa-pause,
-.icon-row .fa-backward-step,
-.icon-row .fa-forward-step,
-.icon-row .fa-arrow-rotate-right,
-.icon-row .fa-shuffle {
-    margin: 0; /* Remove default margin if any */
-}
-
-/* This is optional if you want extra space */
-.icon-row span {
-    display: flex; /* Flex to allow for equal spacing */
-    align-items: center; /* Center align items */
+/* Remove default margins for buttons */
+.icon-row i {
+    margin: 0; /* Ensure no default margin is applied */
 }
 
 .now-playing {
