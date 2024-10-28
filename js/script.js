@@ -23,6 +23,7 @@ const songList = [
     soundSrc: "audio/M4SONIC - Weapon.mp3"
   }
 ];
+console.log(songList);
 
 // Initial song setup
 audioPlayer.src = songList[0].soundSrc; // First song in the song list
