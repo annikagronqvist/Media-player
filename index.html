@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmering - Audio Player</title>
+    <!-- Set charset to allow ÅÄÖ -->
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
+    <!-- CSS AND JS END -->
+
+    <!-- Set viewport to make responsive design possible -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <p>Hello world</p>
-    
+    <p> Hello world</p>
     <audio id="audio-player">
         <source src="" type="audio/mpeg">
     </audio>
@@ -41,7 +44,7 @@
             
             <div class="content-row">
                 <span class="" id="timer-now">0:00</span>            
-                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0" onchange="">
+                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0" onchange=""></input>
                 <span class="" id="timer-total">0:00</span>
             </div>
             
@@ -49,7 +52,7 @@
                 <i class="fa-solid fa-stop"></i>
                 <i class="fa-solid fa-backward-step"></i>
                 
-                <!-- Wrap play and pause buttons in a span or div -->
+                <!-- Play/Pause button container -->
                 <span class="play-pause-container">
                     <i class="fa-solid fa-play" id="play-button"></i> <!-- Play button -->
                     <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i> <!-- Pause button -->
