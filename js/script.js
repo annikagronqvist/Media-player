@@ -20,9 +20,6 @@ const songList = [
     }
 ];
 
-// Log songList to check if paths are correct
-console.log(songList);
-
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button"); // Play button icon
@@ -52,6 +49,20 @@ function togglePlay() {
         pauseButton.style.display = "none"; // Hide pause button
         console.log("Pausing audio");
     }
+}
+
+// Function to play the previous song
+function playPrevious() {
+    // Decrement current song index
+    currentSongIndex--;
+
+    // If current song index is less than 0, wrap around to the last song
+    if (currentSongIndex < 0) {
+        currentSongIndex = songList.length - 1; // Go to the last song
+    }
+
+    // Load and play the previous song
+    loadCurrentSong();
 }
 
 // Listen for when the audio ends to log that event
