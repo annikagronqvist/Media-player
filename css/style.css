@@ -1,66 +1,77 @@
 body {
-	padding:0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 i {
-	font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 #wrapper {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #player-area {
-	width: 500px;
-	border: 1px solid lightgrey;
-	padding: 15px;
+    width: 500px;
+    border: 1px solid lightgrey;
+    padding: 15px;
 }
 
 .content-row {
-	width: 100%;
-	display: flex;
+    width: 100%;
+    display: flex;
 }
 
 .p-20 {
-	padding: 20px;
+    padding: 20px;
 }
 
-/* Center the icons in the button row */
+/* Center the icons in the button row and add spacing */
 .icon-row {
-	justify-content: center; /* Change this to center */
+    justify-content: center; /* Center the buttons */
+    gap: 15px; /* Space between buttons */
 }
 
-/* Add spacing between the buttons */
-.icon-row .fa-play, 
-.icon-row .fa-pause {
-    margin: 0 10px; /* Space between the buttons */
+/* Add spacing around the play and pause buttons specifically */
+.icon-row .fa-play,
+.icon-row .fa-pause,
+.icon-row .fa-backward-step,
+.icon-row .fa-forward-step,
+.icon-row .fa-arrow-rotate-right,
+.icon-row .fa-shuffle {
+    margin: 0; /* Remove default margin if any */
+}
+
+/* This is optional if you want extra space */
+.icon-row span {
+    display: flex; /* Flex to allow for equal spacing */
+    align-items: center; /* Center align items */
 }
 
 .now-playing {
-	justify-content: center;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.8rem;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8rem;
 }
 
 .responsive-img {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 .flex-center {
-	justify-content: center;
+    justify-content: center;
 }
 
 .width-100 {
-	width: 100%;
+    width: 100%;
 }
