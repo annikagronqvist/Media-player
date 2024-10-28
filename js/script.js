@@ -1,51 +1,38 @@
-// Your existing song list
+// Reference to the audio element and play button
+const audioPlayer = document.getElementById("audio-player");
+const playButton = document.getElementById("play-button");
+
+// Song list
 const songList = [
-    {
-        name: "Fade",
-        artist: "Alan Walker",
-        imageSrc: "bild1.jpg",
-        soundSrc: "Alan Walker - Fade.mp3"
-    },
-    {
-        name: "Arc",
-        artist: "NCS",
-        imageSrc: "bild2.jpg",
-        soundSrc: "NCS - Ark.mp3"
-    },
-    {
-        name: "Weapon",
-        artist: "M4SONIC",
-        imageSrc: "bild3.jpg",
-        soundSrc: "M4SONIC - Weapon.mp3"
-    },
+  {
+    name: "Fade",
+    artist: "Alan Walker",
+    imageSrc: "bild1.jpg",
+    soundSrc: "audio/Alan Walker - Fade.mp3"
+  },
+  {
+    name: "Arc",
+    artist: "NCS",
+    imageSrc: "bild2.jpg",
+    soundSrc: "audio/NCS - Ark.mp3"
+  },
+  {
+    name: "Weapon",
+    artist: "M4SONIC",
+    imageSrc: "bild3.jpg",
+    soundSrc: "audio/M4SONIC - Weapon.mp3"
+  }
 ];
 
-// Step 1: Access the audio player and the play/pause buttons
-const audioPlayer = document.getElementById('audio-player');
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
+// Initial song setup
+audioPlayer.src = songList[0].soundSrc; // First song in the song list
 
-// Step 2: Access song title and artist elements
-const songTitle = document.getElementById('song-title');
-const songArtist = document.getElementById('song-artist');
-
-// Function to load the first song
-function loadSong() {
-    const firstSong = songList[0];
-    audioPlayer.src = "audio/" + firstSong.soundSrc;
-    songTitle.textContent = firstSong.name;
-    songArtist.textContent = firstSong.artist;
-}
-
-// Play button functionality
-playButton.addEventListener('click', function() {
-    audioPlayer.play();
+// Event listener for the play button
+playButton.addEventListener("click", function() {
+  // Check if audio is already playing
+  if (audioPlayer.paused) {
+    audioPlayer.play(); // Start playing
+  } else {
+    audioPlayer.pause(); // If playing, pause the audio
+  }
 });
-
-// Pause button functionality
-pauseButton.addEventListener('click', function() {
-    audioPlayer.pause();
-});
-
-// Load the first song initially
-loadSong();
