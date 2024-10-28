@@ -23,32 +23,44 @@ const songList = [
 // Log songList to check if paths are correct
 console.log(songList);
 
-// Select the audio player and play/pause buttons
+// Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.getElementById("play-button"); // Play button icon
-const pauseButton = document.getElementById("pause-button"); // Pause button icon
+const playButton = document.querySelector(".fa-play"); // Play button icon
+let currentSongIndex = 0; // Track the currently playing song index
 
 // Load the first song in the list
-audioPlayer.src = songList[0].soundSrc;
+audioPlayer.src = songList[currentSongIndex].soundSrc;
 console.log("Current song source:", audioPlayer.src);
 
-// Play/pause functionality for the play and pause buttons
-if (playButton && pauseButton) { // Check if both buttons are found
+// Play/pause functionality for the play button
+if (playButton) { // Only if playButton is successfully selected
     playButton.addEventListener("click", function() {
-        audioPlayer.play(); // Play audio
-        playButton.style.display = "none"; // Hide play button
-        pauseButton.style.display = "inline"; // Show pause button
-        console.log("Playing audio");
-    });
-
-    pauseButton.addEventListener("click", function() {
-        audioPlayer.pause(); // Pause audio
-        pauseButton.style.display = "none"; // Hide pause button
-        playButton.style.display = "inline"; // Show play button
-        console.log("Pausing audio");
+        if (audioPlayer.paused) {
+            audioPlayer.play(); // Play if paused
+            console.log("Playing audio");
+        } else {
+            audioPlayer.pause(); // Pause if playing
+            console.log("Pausing audio");
+        }
     });
 } else {
-    console.error("Play or pause button not found in the HTML.");
+    console.error("Play button not found in the HTML.");
+}
+
+// Function to play the previous song
+function playPrevious() {
+    // Decrease the index by 1
+    currentSongIndex--;
+
+    // If the index is less than 0, wrap around to the last song
+    if (currentSongIndex < 0) {
+        currentSongIndex = songList.length - 1; // Go to last song
+    }
+
+    // Load and play the previous song
+    audioPlayer.src = songList[currentSongIndex].soundSrc;
+    audioPlayer.play();
+    console.log("Playing previous song:", songList[currentSongIndex].name);
 }
 
 // Listen for when the audio ends to log that event
