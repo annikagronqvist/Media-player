@@ -54,26 +54,11 @@ function togglePlay() {
     }
 }
 
-// Function to play the previous song
-function playPrevious() {
-    currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length; // Loop back to the last song
-    loadCurrentSong(); // Load and play the new current song
-}
-
-// Function to play the next song
-function playNext() {
-    currentSongIndex = (currentSongIndex + 1) % songList.length; // Loop to the first song if at the end
-    loadCurrentSong(); // Load and play the new current song
-}
-
 // Listen for when the audio ends to log that event
 audioPlayer.addEventListener("ended", function() {
     console.log("Audio has ended.");
-    playNext(); // Automatically play the next song when the current song ends
 });
 
-// Set up volume control (optional)
-const volumeControl = document.getElementById("volume-control");
-volumeControl.addEventListener("input", function() {
-    audioPlayer.volume = volumeControl.value; // Set audio volume based on range input
-});
+// Play button click event
+playButton.addEventListener("click", togglePlay);
+pauseButton.addEventListener("click", togglePlay);
