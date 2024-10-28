@@ -25,31 +25,27 @@ console.log(songList);
 
 // Select the audio player and play/pause buttons
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.getElementById("play-button"); // Play button
-const pauseButton = document.getElementById("pause-button"); // Pause button
+const playButton = document.getElementById("play-button"); // Play button icon
+const pauseButton = document.getElementById("pause-button"); // Pause button icon
 
 // Load the first song in the list
 audioPlayer.src = songList[0].soundSrc;
 console.log("Current song source:", audioPlayer.src);
 
-// Play/pause functionality for the play button
-if (playButton && pauseButton) { // Ensure both buttons are selected
+// Play/pause functionality for the play and pause buttons
+if (playButton && pauseButton) { // Check if both buttons are found
     playButton.addEventListener("click", function() {
-        if (audioPlayer.paused) {
-            audioPlayer.play(); // Play if paused
-            console.log("Playing audio");
-            playButton.style.display = "none"; // Hide play icon
-            pauseButton.style.display = "inline"; // Show pause icon
-        }
+        audioPlayer.play(); // Play audio
+        playButton.style.display = "none"; // Hide play button
+        pauseButton.style.display = "inline"; // Show pause button
+        console.log("Playing audio");
     });
 
     pauseButton.addEventListener("click", function() {
-        if (!audioPlayer.paused) {
-            audioPlayer.pause(); // Pause if playing
-            console.log("Pausing audio");
-            playButton.style.display = "inline"; // Show play icon
-            pauseButton.style.display = "none"; // Hide pause icon
-        }
+        audioPlayer.pause(); // Pause audio
+        pauseButton.style.display = "none"; // Hide pause button
+        playButton.style.display = "inline"; // Show play button
+        console.log("Pausing audio");
     });
 } else {
     console.error("Play or pause button not found in the HTML.");
@@ -58,6 +54,4 @@ if (playButton && pauseButton) { // Ensure both buttons are selected
 // Listen for when the audio ends to log that event
 audioPlayer.addEventListener("ended", function() {
     console.log("Audio has ended.");
-    playButton.style.display = "inline"; // Show play icon when audio ends
-    pauseButton.style.display = "none"; // Hide pause icon when audio ends
 });
