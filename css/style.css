@@ -72,16 +72,4 @@ body {
 }
 
 #song-title, #song-artist {
-    margin-right 
-}
-#album-cover {
-    width: 150px; /* Original width */
-    height: 150px; /* Original height */
-    object-fit: cover; /* Maintain aspect ratio and fill the box */
-    border-radius: 8px; /* Rounded corners */
-    display: block; /* Ensure the image behaves as a block element */
-    margin: 0 auto; /* Center the image */
-}
-
-
-
+    margin-right
