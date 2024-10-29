@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmering - Audio Player</title>
+    <title>Audio Player</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
@@ -33,24 +33,24 @@
                 <span id="timer-total">0:00</span>
             </div>
 
-            <!-- Button Row positioned here -->
+            <!-- Button Row -->
             <div class="content-row icon-row p-20">
                 <i class="fa-solid fa-arrow-rotate-right icon-button" id="repeat-button"></i> <!-- Repeat button -->
                 <i class="fa-solid fa-backward-step icon-button" id="previous-button" onclick="playPrevious()"></i> <!-- Previous button -->
                 
                 <!-- Play/Pause button container -->
                 <span class="play-pause-container">
-                    <i class="fa-solid fa-play icon-button" id="play-button"></i> <!-- Play button -->
-                    <i class="fa-solid fa-pause icon-button" id="pause-button" style="display: none;"></i> <!-- Pause button -->
+                    <i class="fa-solid fa-play icon-button" id="play-button" onclick="togglePlay()"></i> <!-- Play button -->
+                    <i class="fa-solid fa-pause icon-button" id="pause-button" style="display: none;" onclick="togglePlay()"></i> <!-- Pause button -->
                 </span>
                 
-                <i class="fa-solid fa-forward-step icon-button" onclick="playNext()"></i> <!-- Next button -->
+                <i class="fa-solid fa-forward-step icon-button" id="next-button" onclick="playNext()"></i> <!-- Next button -->
                 <i class="fa-solid fa-shuffle icon-button" onclick="shuffleSong()"></i> <!-- Shuffle button -->
             </div>
 
             <!-- Volume control -->
             <div class="content-row">
-                <input type="range" id="volume-control" min="0" max="1" step="0.01">
+                <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
             </div>
 
             <div id="playlist">
