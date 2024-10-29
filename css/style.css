@@ -65,10 +65,10 @@ body {
 }
 
 .song-detail {
-    margin: 0 10px; /* Add spacing between title and artist */
-    text-align: center; /* Center text within the spans */
+    margin: 0 20px; /* Add spacing between title and artist */
     font-size: 18px; /* Optional: Adjust font size */
     color: #333; /* Optional: Adjust text color */
+    text-align: center; /* Center text within the spans */
 }
 
 #song-title, #song-artist {
