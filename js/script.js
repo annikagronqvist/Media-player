@@ -1,3 +1,17 @@
+// Debounce function to limit how often a function can be executed
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+
 // Song list array
 const songList = [
     {
