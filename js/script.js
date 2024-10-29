@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Programmering - Audio Player</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <audio id="audio-player">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="content-row flex-center">
-                <img src="" id="album-cover" class="responsive-img" alt="Cover image">
+                <img src="path/to/your/image.jpg" id="album-cover" class="responsive-img" alt="Cover image">
             </div>
 
             <div class="content-row">
@@ -52,13 +52,16 @@
             </div>
 
             <div id="playlist">
-    <div class="content-row p-20 flex-center">
-        <span class="playlist-item">Playlist:</span>
-    </div>
-    <div id="playlist-items">
-        <!-- Playlist items will be generated here -->
-    </div>
-</div>
+                <div class="content-row p-20 flex-center">
+                    <span id="playlist-label" class="playlist-item">Playlist:</span>
+                </div>
+                <div id="playlist-items">
+                    <!-- Playlist items will be generated here -->
+                </div>
+            </div>
+
+            <!-- Mute button positioned here -->
+            <i class="fa-solid fa-volume-xmark mute-button" id="mute-button"></i>
         </div>
     </div>
 </body>
