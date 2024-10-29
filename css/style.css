@@ -59,8 +59,13 @@ body {
 
 .flex-row {
     display: flex; /* Use flexbox to align items in a row */
-      justify-content: center; /* Center the title and artist */
+    justify-content: center; /* Center the title and artist */
     align-items: center; /* Center align items vertically */
+}
+
+.song-detail {
+    margin: 0 10px; /* Add spacing between title and artist */
+    text-align: center; /* Center text within the spans */
 }
 
 #song-title, #song-artist {
