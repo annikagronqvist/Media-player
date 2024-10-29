@@ -104,9 +104,10 @@ function shuffleSong() {
 
 // Function to toggle repeat mode
 function toggleRepeat() {
+    console.log("Toggle repeat called"); // Log when the function is called
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
-    
+
     // Change the appearance of the repeat button based on its state
     repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
 }
