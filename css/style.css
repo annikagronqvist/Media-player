@@ -1,6 +1,6 @@
 body {
-    padding: 0;
-    margin: 0;
+    background-color: #f0f4f8; /* Light background for the body */
+    font-family: Arial, sans-serif;
 }
 
 * {
