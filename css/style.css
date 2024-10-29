@@ -25,11 +25,12 @@ body {
     font-size: 24px; /* Icon size */
     margin: 0 10px; /* Space between icons */
     padding: 10px; /* Padding for the buttons */
-    border: 2px solid #555; /* Dark grey border around buttons */
+    border: 2px solid #444; /* Subtle dark grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
     background-color: #add8e6; /* Light blue background for buttons */
     color: #000; /* Dark text color for better contrast */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 .icon-button:hover {
@@ -37,16 +38,11 @@ body {
     color: white; /* Change icon color on hover */
 }
 
-#volume-control {
-    width: 100%; /* Make the volume slider full width */
+#volume-control, #progress-bar {
+    width: 100%; /* Make the sliders full width */
 }
 
-#progress-bar {
-    width: 100%; /* Make the progress bar full width */
-}
-
-/* Reset any specific button styles that might have caused jumping */
-.icon-button, .icon-row i {
+.icon-row i {
     display: inline-block; /* Ensure all buttons stay in line */
     vertical-align: middle; /* Align buttons vertically */
 }
