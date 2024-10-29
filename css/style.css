@@ -82,4 +82,7 @@ body {
     height: 150px; /* Set a specific height */
     object-fit: cover; /* Maintain aspect ratio and fill the box */
     border-radius: 8px; /* Optional: rounded corners */
+    display: block; /* Ensure the image behaves as a block element */
+    margin: 0 auto; /* Center the image */
 }
+
