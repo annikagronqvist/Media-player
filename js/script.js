@@ -46,6 +46,20 @@ function loadPlaylist() {
     });
 }
 
+// Add mute button functionality
+const muteButton = document.getElementById("mute-button");
+muteButton.addEventListener("click", toggleMute);
+
+function toggleMute() {
+    if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
+    } else {
+        audioPlayer.muted = true;
+        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
+    }
+}
+
 // Initial Setup
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
