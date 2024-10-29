@@ -20,8 +20,8 @@ body {
 }
 
 #album-cover {
-    width: 150px; /* Image width */
-    height: 150px; /* Image height */
+    width: 175px; /* Adjusted width */
+    height: 175px; /* Adjusted height */
     object-fit: cover; /* Maintain aspect ratio */
     border-radius: 8px; /* Rounded corners */
     display: block; /* Block element to center */
