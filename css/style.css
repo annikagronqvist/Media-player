@@ -74,10 +74,6 @@ body {
     text-align: center; /* Center align text inside the playlist */
 }
 
-#playlist-items {
-    display: none; /* Initially hidden */
-    text-align: center;
-}
 .playlist-item {
     cursor: pointer; /* Change cursor to pointer for clickable items */
     color: #007BFF; /* Change color to indicate it's clickable */
@@ -87,20 +83,5 @@ body {
 .playlist-item:hover {
     color: #0056b3; /* Darker color on hover */
 }
-.mute-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: black;
-    background-color: lightgray;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.mute-button:hover {
-    background-color: gray;
-    color: white;
-}
+
