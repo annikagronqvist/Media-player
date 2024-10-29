@@ -25,9 +25,9 @@ body {
     font-size: 24px; /* Icon size */
     margin: 0 10px; /* Space between icons */
     padding: 10px; /* Padding for the buttons */
-    border: 2px solid lightgrey; /* Light blue border around buttons */
+    border: 2px solid lightgrey; /* Light grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
-    color: lightblue; /* Light blue color for icons */
+    color: black; /* Light blue color for icons */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
