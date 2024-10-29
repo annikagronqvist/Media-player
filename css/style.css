@@ -70,14 +70,8 @@ body {
     font-size: 18px;
     color: #333;
 }
-
 #playlist {
     text-align: center; /* Center align text inside the playlist */
-}
-
-#playlist-items {
-    display: none; /* Initially hidden */
-    text-align: center;
 }
 
 .playlist-item {
@@ -90,20 +84,4 @@ body {
     color: #0056b3; /* Darker color on hover */
 }
 
-.mute-button {
-    position: absolute; /* Change to absolute positioning */
-    bottom: 10px; /* Position from the bottom */
-    right: 10px; /* Position from the right */
-    font-size: 24px; /* Adjust font size */
-    color: black; /* Icon color */
-    background-color: lightgray; /* Background color */
-    padding: 5px; /* Padding for the button */
-    border-radius: 50%; /* Round button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Transition for hover effect */
-}
 
-.mute-button:hover {
-    background-color: gray; /* Darken background on hover */
-    color: white; /* Change icon color on hover */
-}
