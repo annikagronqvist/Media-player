@@ -63,17 +63,18 @@ function loadCurrentSong() {
     document.getElementById('song-title').innerText = currentSong.name;
     document.getElementById('song-artist').innerText = currentSong.artist;
     document.getElementById('album-cover').src = currentSong.imageSrc;
-    audioPlayer.play();
-    playButton.style.display = "none";
-    pauseButton.style.display = "inline";
+    audioPlayer.load(); // Reload audio element with the new source
 }
 
-// Play/pause toggle
+// Toggle Play/Pause
 function togglePlay() {
     if (audioPlayer.paused) {
-        audioPlayer.play();
-        playButton.style.display = "none";
-        pauseButton.style.display = "inline";
+        audioPlayer.play().then(() => {
+            playButton.style.display = "none";
+            pauseButton.style.display = "inline";
+        }).catch(error => {
+            console.error("Error playing audio:", error);
+        });
     } else {
         audioPlayer.pause();
         playButton.style.display = "inline";
@@ -107,12 +108,14 @@ document.getElementById('progress-bar').addEventListener('input', function() {
 function playNext() {
     currentSongIndex = (currentSongIndex + 1) % songList.length;
     loadCurrentSong();
+    togglePlay();
 }
 
 // Play previous song
 function playPrevious() {
     currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length;
     loadCurrentSong();
+    togglePlay();
 }
 
 // Shuffle to a random song
@@ -123,6 +126,7 @@ function shuffleSong() {
     } while (randomIndex === currentSongIndex);
     currentSongIndex = randomIndex;
     loadCurrentSong();
+    togglePlay();
 }
 
 // Toggle repeat mode
