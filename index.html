@@ -9,6 +9,10 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
+    <audio id="audio-player">
+        <source src="" type="audio/mpeg">
+    </audio>
+
     <div id="wrapper">
         <div id="player-area" class="text-center">
             <div class="content-row now-playing p-20">
@@ -21,25 +25,30 @@
                 <span class="width-100" id="song-title"></span>
             </div>
             <div class="content-row">
-                <span class="width-100" id="song-artist"></span>
+                <span class="width-100" id="song-artist"></span>    
             </div>
             <div class="content-row">
-                <span id="timer-now">0:00</span>
-                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0">
+                <span id="timer-now">0:00</span>            
+                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0" onchange="">
                 <span id="timer-total">0:00</span>
             </div>
 
+            <!-- Button Row positioned here -->
             <div class="content-row icon-row p-20">
-                <i class="fa-solid fa-arrow-rotate-right" id="repeat-button"></i>
-                <i class="fa-solid fa-backward-step" id="previous-button" onclick="playPrevious()"></i>
+                <i class="fa-solid fa-arrow-rotate-right icon-button" id="repeat-button"></i> <!-- Repeat button -->
+                <i class="fa-solid fa-backward-step icon-button" id="previous-button" onclick="playPrevious()"></i> <!-- Previous button -->
+                
+                <!-- Play/Pause button container -->
                 <span class="play-pause-container">
-                    <i class="fa-solid fa-play" id="play-button"></i>
-                    <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i>
+                    <i class="fa-solid fa-play icon-button" id="play-button"></i> <!-- Play button -->
+                    <i class="fa-solid fa-pause icon-button" id="pause-button" style="display: none;"></i> <!-- Pause button -->
                 </span>
-                <i class="fa-solid fa-forward-step" onclick="playNext()"></i>
-                <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i>
+                
+                <i class="fa-solid fa-forward-step icon-button" onclick="playNext()"></i> <!-- Next button -->
+                <i class="fa-solid fa-shuffle icon-button" onclick="shuffleSong()"></i> <!-- Shuffle button -->
             </div>
 
+            <!-- Move volume control here -->
             <div class="content-row">
                 <input type="range" id="volume-control" min="0" max="1" step="0.01">
             </div>
@@ -51,8 +60,5 @@
             </div>
         </div>
     </div>
-    <audio id="audio-player">
-        <source src="" type="audio/mpeg">
-    </audio>
 </body>
 </html>
