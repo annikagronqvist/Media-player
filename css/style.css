@@ -54,10 +54,12 @@ body {
 }
 
 #album-cover {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 150px; /* Adjust to desired size */
+    height: 150px; /* Maintain same ratio as width */
+    object-fit: cover; /* Keeps aspect ratio while filling area */
+    border-radius: 8px; /* Optional: rounded corners */
+    display: block; /* Centers the image within a container */
+    margin: 0 auto; /* Centers the image in flex containers */
 }
 
 #volume-control, #progress-bar {
