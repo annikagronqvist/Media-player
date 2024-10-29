@@ -78,11 +78,11 @@ body {
 
 
 #album-cover {
-    width: 150px; /* Set a specific width */
-    height: 150px; /* Set a specific height */
-    object-fit: cover; /* Maintain aspect ratio and fill the box */
+    width: 200px; /* Adjust as necessary */
+    height: 200px; /* Adjust as necessary */
+    object-fit: cover; /* Maintain aspect ratio */
     border-radius: 8px; /* Optional: rounded corners */
-    display: block; /* Ensure the image behaves as a block element */
+    display: block; /* Ensure it behaves as a block element */
     margin: 0 auto; /* Center the image */
 }
 
