@@ -28,7 +28,7 @@ const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 const repeatButton = document.getElementById("repeat-button");
-// Select the volume control element
+const previousButton = document.getElementById("previous-button"); // Added for previous button
 const volumeControl = document.getElementById("volume-control");
 
 // Set the initial volume (optional)
@@ -97,4 +97,43 @@ document.getElementById('progress-bar').addEventListener('input', function() {
 // Function to play the next song
 function playNext() {
     currentSongIndex++;
-   
+    if (currentSongIndex >= songList.length) {
+        currentSongIndex = 0; // Go back to the first song if at the end
+    }
+    loadCurrentSong(); // Load the new song
+}
+
+// Function to play the previous song
+function playPrevious() {
+    currentSongIndex--; // Decrease the current song index
+    if (currentSongIndex < 0) {
+        currentSongIndex = songList.length - 1; // Wrap around to the last song
+    }
+    loadCurrentSong(); // Load the new song
+}
+
+// Shuffle song function
+function shuffleSong() {
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * songList.length);
+    } while (randomIndex === currentSongIndex);
+    currentSongIndex = randomIndex;
+    loadCurrentSong();
+}
+
+// Function to toggle repeat mode
+function toggleRepeat() {
+    console.log("Toggle repeat called"); // Log when the function is called
+    isRepeatOn = !isRepeatOn; // Toggle repeat mode
+    console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
+
+    // Change the appearance of the repeat button based on its state
+    repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
+}
+
+// Attach event listeners for buttons
+playButton.addEventListener("click", togglePlay);
+pauseButton.addEventListener("click", togglePlay);
+repeatButton.addEventListener("click", toggleRepeat);
+previousButton.addEventListener("click", playPrevious); // Attach event listener to the previous button
