@@ -10,25 +10,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
-    position: relative; /* Add this line to make the wrapper a positioning reference */
-}
-
-.mute-button {
-    position: absolute; /* Change to absolute positioning */
-    top: 10px;         /* Adjust as needed for spacing from top */
-    right: 10px;       /* Adjust as needed for spacing from right */
-    font-size: 24px;
-    color: black;
-    background-color: lightgray;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.mute-button:hover {
-    background-color: gray;
-    color: white;
 }
 
 .content-row {
@@ -102,4 +83,3 @@ body {
 .playlist-item:hover {
     color: #0056b3; /* Darker color on hover */
 }
-
