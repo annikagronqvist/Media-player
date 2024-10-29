@@ -44,9 +44,3 @@ body {
 #progress-bar {
     width: 100%; /* Make the progress bar full width */
 }
-
-/* Reset any specific button styles that might have caused jumping */
-.icon-button, .icon-row i {
-    display: inline-block; /* Ensure all buttons stay in line */
-    vertical-align: middle; /* Align buttons vertically */
-}
