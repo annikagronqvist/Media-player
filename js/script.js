@@ -25,19 +25,21 @@ console.log(songList);
 
 // Select the audio player and buttons
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.getElementById("play-button"); // Play button icon
-const pauseButton = document.getElementById("pause-button"); // Pause button icon
-const repeatButton = document.getElementById("repeat-button"); // Repeat button icon
+const playButton = document.getElementById("play-button");
+const pauseButton = document.getElementById("pause-button");
+const repeatButton = document.getElementById("repeat-button");
 
-let currentSongIndex = 0; // To keep track of the current song index
-let isRepeatOn = false; // To track if repeat is on
+let currentSongIndex = 0;
+let isRepeatOn = false;
 
 // Load the first song in the list
-loadCurrentSong(); // Call this function to load the first song when the page loads
+loadCurrentSong();
 
 // Function to load the current song based on currentSongIndex
 function loadCurrentSong() {
     audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
+    document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
+    document.getElementById('song-artist').innerText = songList[currentSongIndex].artist; // Update artist name
     audioPlayer.play(); // Start playing the audio
     console.log("Now playing:", songList[currentSongIndex].name);
 }
@@ -45,14 +47,14 @@ function loadCurrentSong() {
 // Play/pause functionality for the play button
 function togglePlay() {
     if (audioPlayer.paused) {
-        audioPlayer.play(); // Play if paused
-        playButton.style.display = "none"; // Hide play button
-        pauseButton.style.display = "inline"; // Show pause button
+        audioPlayer.play();
+        playButton.style.display = "none";
+        pauseButton.style.display = "inline";
         console.log("Playing audio");
     } else {
-        audioPlayer.pause(); // Pause if playing
-        playButton.style.display = "inline"; // Show play button
-        pauseButton.style.display = "none"; // Hide pause button
+        audioPlayer.pause();
+        playButton.style.display = "inline";
+        pauseButton.style.display = "none";
         console.log("Pausing audio");
     }
 }
@@ -78,12 +80,12 @@ audioPlayer.addEventListener('timeupdate', function() {
 // Allow users to click on the progress bar to seek to a specific time
 document.getElementById('progress-bar').addEventListener('input', function() {
     const seekTime = (audioPlayer.duration * (this.value / 100));
-    audioPlayer.currentTime = seekTime; // Set the audio player's current time
+    audioPlayer.currentTime = seekTime;
 });
 
 // Function to play the next song
 function playNext() {
-    currentSongIndex++; // Move to the next song
+    currentSongIndex++;
     if (currentSongIndex >= songList.length) {
         currentSongIndex = 0; // Go back to the first song if at the end
     }
@@ -104,8 +106,8 @@ function shuffleSong() {
 function toggleRepeat() {
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
-
-    // Optional: Change the appearance of the repeat button based on its state
+    
+    // Change the appearance of the repeat button based on its state
     repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
 }
 
