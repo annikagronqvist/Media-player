@@ -36,9 +36,11 @@ function loadPlaylist() {
         const songItem = document.createElement("div");
         songItem.className = "playlist-item";
         songItem.innerText = `${song.name} - ${song.artist}`;
+        songItem.style.cursor = "pointer"; // Change cursor to pointer for clarity
         songItem.addEventListener("click", () => {
-            currentSongIndex = index;
-            loadCurrentSong();
+            currentSongIndex = index; // Set the current song index
+            loadCurrentSong(); // Load the selected song
+            togglePlay(); // Play the song immediately
         });
         playlistItemsContainer.appendChild(songItem);
     });
