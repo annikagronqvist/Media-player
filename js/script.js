@@ -29,7 +29,7 @@ const previousButton = document.getElementById("previous-button");
 const nextButton = document.getElementById("next-button");
 const volumeControl = document.getElementById("volume-control");
 
-// Set the initial volume (optional)
+// Set the initial volume
 audioPlayer.volume = 0.5; // Set the initial volume to 50%
 
 // Update the audio player's volume when the volume control is adjusted
