@@ -69,6 +69,17 @@ audioPlayer.addEventListener("ended", function() {
     playNext(); // Automatically play the next song when the current one ends
 });
 
+function shuffleSong() {
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * songList.length);
+    } while (randomIndex === currentSongIndex);
+    
+    currentSongIndex = randomIndex;
+    loadCurrentSong();
+    console.log("Shuffled to song:", songList[currentSongIndex].name);
+}
+
 // Play button click event
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
