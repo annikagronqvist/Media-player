@@ -28,6 +28,7 @@ body {
     border: 2px solid grey; /* Light grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
     color: black; /* black color for icons */
+    background-color: lightblue; /* Light blue background for buttons */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
