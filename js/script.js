@@ -72,6 +72,17 @@ audioPlayer.volume = 0.5;
 let currentSongIndex = 0;
 let isRepeatOn = false;
 
+const playlistLabel = document.getElementById("playlist-label");
+const playlistItems = document.getElementById("playlist-items");
+
+playlistLabel.addEventListener("click", function() {
+    if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
+        playlistItems.style.display = "block"; // Show the playlist
+    } else {
+        playlistItems.style.display = "none"; // Hide the playlist
+    }
+});
+
 // Load and play the current song
 function loadCurrentSong() {
     const currentSong = songList[currentSongIndex];
