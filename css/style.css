@@ -41,8 +41,3 @@ body {
 #volume-control, #progress-bar {
     width: 100%; /* Make the sliders full width */
 }
-
-.icon-row i {
-    display: inline-block; /* Ensure all buttons stay in line */
-    vertical-align: middle; /* Align buttons vertically */
-}
