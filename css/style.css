@@ -27,7 +27,7 @@ body {
     padding: 10px; /* Padding for the buttons */
     border: 2px solid grey; /* Light grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
-    color: black; /* Light blue color for icons */
+    color: black; /* black color for icons */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
