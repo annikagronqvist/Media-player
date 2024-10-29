@@ -13,14 +13,13 @@ body {
 }
 
 .content-row {
-     text-align: center; /* Center the text inside the content row */
+    text-align: center; /* Center the text inside the content row */
 }
 
 .icon-row {
     display: flex;
     justify-content: center; /* Center the icons */
 }
-
 
 .icon-row i {
     font-size: 24px; /* Icon size */
@@ -45,6 +44,7 @@ body {
 #progress-bar {
     width: 100%; /* Make the progress bar full width */
 }
+
 #playlist-items {
     display: flex; /* Use flexbox to align items */
     flex-direction: column; /* Stack items vertically */
@@ -72,17 +72,4 @@ body {
 }
 
 #song-title, #song-artist {
-    margin-right: 20px; /* Add space between the title and artist */
-}
-
-
-
-#album-cover {
-    width: 200px; /* Adjust as necessary */
-    height: 200px; /* Adjust as necessary */
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: rounded corners */
-    display: block; /* Ensure it behaves as a block element */
-    margin: 0 auto; /* Center the image */
-}
-
+    margin-right
