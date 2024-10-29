@@ -28,11 +28,14 @@
 
     <div id="wrapper">
         <div id="player-area" class="text-center">
-            <div class="content-row now-playing p-20">
-                <span class="heading-text">Now Playing</span>
-            </div>
             <div class="content-row flex-center">
                 <img src="" id="album-cover" class="responsive-img" alt="Cover image">
+            </div>
+            <div class="content-row">
+                <span class="width-100" id="song-title"></span>
+            </div>
+            <div class="content-row">
+                <span class="width-100" id="song-artist"></span>    
             </div>
             <div class="content-row">
                 <span id="timer-now">0:00</span>            
@@ -59,11 +62,16 @@
             <div class="content-row">
                 <input type="range" id="volume-control" min="0" max="1" step="0.01">
             </div>
+            
+            <!-- Move "Now Playing" text here -->
+            <div class="content-row now-playing p-20">
+                <span class="heading-text">Now Playing</span>
+            </div>
 
-            <!-- Moved playlist to display song name and artist -->
-            <div id="playlist" class="content-row p-20 flex-center">
-                <span id="song-title" class="playlist-item">Låtnamn</span>
-                <span id="song-artist" class="playlist-item">Artistnamn</span>
+            <div id="playlist">
+                <div class="content-row p-20 flex-center">
+                    <span class="playlist-item">Låtnamn - Artistnamn</span>
+                </div>
             </div>
         </div>
     </div>
