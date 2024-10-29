@@ -24,14 +24,12 @@
         }
 
         .mute-button {
-            position: absolute; /* Position it absolutely */
-            top: 10px;         /* Adjust this value as needed */
-            right: 10px;       /* Adjust this value as needed */
             font-size: 24px;   /* Size of the icon */
             cursor: pointer;    /* Pointer on hover */
             background: none;   /* No background */
             border: none;       /* No border */
             color: black;       /* Icon color */
+            margin-top: 10px;   /* Space from the player */
         }
 
         .mute-button:hover {
@@ -123,11 +121,6 @@
     </audio>
 
     <div id="wrapper">
-        <!-- Mute Button in the upper right corner -->
-        <button class="mute-button" id="mute-button">
-            <i class="fa-solid fa-volume-xmark"></i>
-        </button>
-
         <div id="player-area" class="text-center">
             <div class="content-row now-playing p-20">
                 <span class="heading-text">Now Playing</span>
@@ -175,6 +168,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- Mute Button in the bottom of the player -->
+        <button class="mute-button" id="mute-button">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
     </div>
 
     <script>
