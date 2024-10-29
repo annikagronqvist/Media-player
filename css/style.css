@@ -25,7 +25,7 @@ body {
     font-size: 24px; /* Icon size */
     margin: 0 10px; /* Space between icons */
     padding: 10px; /* Padding for the buttons */
-    border: 2px solid #444; /* Subtle dark grey border around buttons */
+    border: 2px solid #444; /* Dark grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
     background-color: #add8e6; /* Light blue background for buttons */
     color: #000; /* Dark text color for better contrast */
