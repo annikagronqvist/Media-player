@@ -20,6 +20,7 @@ body {
 .icon-row {
     display: flex;
     justify-content: center;
+    align-items: center; /* Ensure vertical alignment of icons */
 }
 
 .icon-row i {
@@ -28,13 +29,28 @@ body {
     padding: 10px;
     border: 2px solid grey;
     border-radius: 5px;
+    color: black;
     background-color: lightblue;
     transition: background-color 0.3s, color 0.3s;
-}
 
 .icon-row i:hover {
     background-color: rgba(173, 216, 230, 0.5);
     color: white;
+}
+
+    /* Ensure play/pause container is the same size as other icons */
+.play-pause-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; /* Same as the icon width with padding */
+    height: 44px; /* Same as the icon height with padding */
+}
+
+.play-pause-container i {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
 }
 
 #album-cover {
