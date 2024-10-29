@@ -68,14 +68,13 @@ let isRepeatOn = false;
 
 // Load the current song details and play
 function loadCurrentSong() {
-    audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
-    document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
-    document.getElementById('song-artist').innerText = songList[currentSongIndex].artist; // Update artist name
-    document.getElementById('album-cover').src = songList[currentSongIndex].imageSrc; // Set the image source
-
-    audioPlayer.load(); // Ensure the audio is loaded before playing
+    const currentSong = songList[currentSongIndex];
+    audioPlayer.src = currentSong.soundSrc; // Set audio source
+    document.getElementById('song-title').innerText = currentSong.name; // Update song title
+    document.getElementById('song-artist').innerText = currentSong.artist; // Update artist name
+    document.getElementById('album-cover').src = `img/${currentSong.imageSrc}`; // Update album cover
     audioPlayer.play(); // Start playing the audio
-    console.log("Now playing:", songList[currentSongIndex].name);
+    console.log("Now playing:", currentSong.name);
 }
 
 // Play/pause functionality for the play button
