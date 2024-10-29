@@ -1,3 +1,4 @@
+
 // Define the song list
 const songList = [
     {
@@ -46,20 +47,6 @@ function loadPlaylist() {
     });
 }
 
-// Add mute button functionality
-const muteButton = document.getElementById("mute-button");
-muteButton.addEventListener("click", toggleMute);
-
-function toggleMute() {
-    if (audioPlayer.muted) {
-        audioPlayer.muted = false;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
-    } else {
-        audioPlayer.muted = true;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
-    }
-}
-
 // Initial Setup
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
@@ -71,17 +58,6 @@ audioPlayer.volume = 0.5;
 
 let currentSongIndex = 0;
 let isRepeatOn = false;
-
-const playlistLabel = document.getElementById("playlist-label");
-const playlistItems = document.getElementById("playlist-items");
-
-playlistLabel.addEventListener("click", function() {
-    if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
-        playlistItems.style.display = "block"; // Show the playlist
-    } else {
-        playlistItems.style.display = "none"; // Hide the playlist
-    }
-});
 
 // Load and play the current song
 function loadCurrentSong() {
@@ -175,6 +151,4 @@ volumeControl.addEventListener("input", function() {
 loadPlaylist();
 preloadImages();
 loadCurrentSong();
-
-
 
