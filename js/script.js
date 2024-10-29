@@ -1,68 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Player</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script defer src="js/script.js"></script>
-</head>
-<body>
-    <audio id="audio-player">
-        <source src="" type="audio/mpeg">
-    </audio>
+// Define the song list
+const songList = [
+    {
+        name: "Fade",
+        artist: "Alan Walker",
+        imageSrc: "img/Walker.jpg",
+        soundSrc: "audio/Alan Walker - Fade.mp3"
+    },
+    {
+        name: "Arc",
+        artist: "NCS",
+        imageSrc: "img/NCS.jpg",
+        soundSrc: "audio/NCS - Ark.mp3"
+    },
+    {
+        name: "Weapon",
+        artist: "M4SONIC",
+        imageSrc: "img/Sonic.jpg",
+        soundSrc: "audio/M4SONIC - Weapon.mp3"
+    }
+];
 
-    <div id="wrapper">
-        <div id="player-area" class="text-center">
-            <div class="content-row now-playing p-20">
-                <span class="heading-text">Now Playing</span>
-            </div>
+// Preload images for smooth display
+function preloadImages() {
+    songList.forEach(song => {
+        const img = new Image();
+        img.src = song.imageSrc;
+    });
+}
 
-            <div class="content-row">
-                <div id="song-info" class="flex-row">
-                    <span id="song-title" class="song-detail"></span>
-                    <span id="song-artist" class="song-detail"></span>
-                </div>
-            </div>
+// Load the playlist items dynamically
+function loadPlaylist() {
+    const playlistItemsContainer = document.getElementById("playlist-items");
+    playlistItemsContainer.innerHTML = ""; // Clear existing playlist
+    songList.forEach((song, index) => {
+        const songItem = document.createElement("div");
+        songItem.className = "playlist-item";
+        songItem.innerText = `${song.name} - ${song.artist}`;
+        songItem.style.cursor = "pointer"; // Change cursor to pointer for clarity
+        songItem.addEventListener("click", () => {
+            currentSongIndex = index; // Set the current song index
+            loadCurrentSong(); // Load the selected song
+            togglePlay(); // Play the song immediately
+        });
+        playlistItemsContainer.appendChild(songItem);
+    });
+}
 
-            <div class="content-row flex-center">
-                <img src="path/to/your/image.jpg" id="album-cover" class="responsive-img" alt="Cover image">
-            </div>
+// Add mute button functionality
+const audioPlayer = document.getElementById("audio-player");
+const muteButton = document.getElementById("mute-button");
+muteButton.addEventListener("click", toggleMute);
 
-            <div class="content-row">
-                <span id="timer-now">0:00</span>            
-                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0">
-                <span id="timer-total">0:00</span>
-            </div>
+function toggleMute() {
+    if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
+    } else {
+        audioPlayer.muted = true;
+        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
+    }
+}
 
-            <div class="content-row icon-row p-20">
-                <i class="fa-solid fa-arrow-rotate-right" id="repeat-button"></i>
-                <i class="fa-solid fa-backward-step" id="previous-button"></i>
-                <span class="play-pause-container">
-                    <i class="fa-solid fa-play" id="play-button"></i>
-                    <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i>
-                </span>
-                <i class="fa-solid fa-forward-step" onclick="playNext()"></i>
-                <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i>
-            </div>
-
-            <div class="content-row">
-                <input type="range" id="volume-control" min="0" max="1" step="0.01">
-            </div>
-
-            <div id="playlist">
-                <div class="content-row p-20 flex-center">
-                    <span id="playlist-label" class="playlist-item">Playlist:</span>
-                </div>
-                <div id="playlist-items">
-                    <!-- Playlist items will be generated here -->
-                </div>
-            </div>
-
-            <!-- Mute button positioned here -->
-            <i class="fa-solid fa-volume-xmark mute-button" id="mute-button"></i>
-        </div>
-    </div>
-</body>
-</html>
+// Initial Setup
+const playButton = document.getElementById("play-button");
+const pauseButton = document.getElementBy
