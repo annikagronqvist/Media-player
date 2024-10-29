@@ -46,6 +46,18 @@ function loadPlaylist() {
     });
 }
 
+// Add a click event to the "Playlist" title to toggle song list visibility
+const playlistTitle = document.getElementById("playlist-title");
+playlistTitle.addEventListener("click", () => {
+    const playlistItemsContainer = document.getElementById("playlist-items");
+    // Toggle the display of the song list
+    if (playlistItemsContainer.style.display === "none") {
+        playlistItemsContainer.style.display = "block"; // Show the song list
+    } else {
+        playlistItemsContainer.style.display = "none"; // Hide the song list
+    }
+});
+
 // Initial Setup
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
@@ -149,4 +161,4 @@ volumeControl.addEventListener("input", function() {
 // Initialize the playlist and preload images
 loadPlaylist();
 preloadImages();
-loadCurrentSong();
+loadCurrentSong(); 
