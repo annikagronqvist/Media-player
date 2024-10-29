@@ -66,10 +66,10 @@
                 <input type="range" id="volume-control" min="0" max="1" step="0.01">
             </div>
 
-            <div id="playlist">
-                <div class="content-row p-20 flex-center">
-                    <span class="playlist-item">Låtnamn - Artistnamn</span>
-                </div>
+            <!-- Moved playlist to display song name and artist -->
+            <div id="playlist" class="content-row p-20 flex-center">
+                <span id="song-title" class="playlist-item">Låtnamn</span>
+                <span id="song-artist" class="playlist-item">Artistnamn</span>
             </div>
         </div>
     </div>
