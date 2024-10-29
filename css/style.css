@@ -13,27 +13,63 @@ body {
 }
 
 .content-row {
+    text-align: center; /* Center the text inside the content row */
+}
+
+.icon-row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* Space between rows */
+    justify-content: center; /* Center the icons */
 }
 
-#album-cover {
-    width: 175px; /* Adjusted width */
-    height: 175px; /* Adjusted height */
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners */
-    display: block; /* Block element to center */
-    margin: 0 auto; /* Center the image */
+.icon-row i {
+    font-size: 24px; /* Icon size */
+    margin: 0 10px; /* Space between icons */
+    padding: 10px; /* Padding for the buttons */
+    border: 2px solid grey; /* Light grey border around buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    color: black; /* black color for icons */
+    background-color: lightblue; /* Light blue background for buttons */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
-.controls {
-    display: flex;
-    justify-content: space-around; /* Space between control buttons */
-    align-items: center;
+.icon-row i:hover {
+    background-color: rgba(173, 216, 230, 0.5); /* Light blue background on hover */
+    color: white; /* Change icon color on hover */
 }
 
-input[type="range"] {
-    width: 100%; /* Full width for the progress bar */
+#volume-control {
+    width: 100%; /* Make the volume slider full width */
 }
+
+#progress-bar {
+    width: 100%; /* Make the progress bar full width */
+}
+
+#playlist-items {
+    display: flex; /* Use flexbox to align items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.playlist-item {
+    margin: 5px 0; /* Add some space between items */
+    text-align: center; /* Center text within the item */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.flex-row {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: center; /* Center the title and artist */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 10px; /* Space below the title and artist */
+}
+
+.song-detail {
+    margin: 0 20px; /* Add spacing between title and artist */
+    font-size: 18px; /* Optional: Adjust font size */
+    color: #333; /* Optional: Adjust text color */
+    text-align: center; /* Center text within the spans */
+}
+
+#song-title, #song-artist {
+    margin-right
