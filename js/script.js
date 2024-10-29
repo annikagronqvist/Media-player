@@ -70,21 +70,26 @@ audioPlayer.addEventListener("ended", function() {
 });
 
 function shuffleSong() {
+    // Generate a random index that's different from the current song index
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * songList.length);
     } while (randomIndex === currentSongIndex);
 
+    // Set the new current song index and load the new song
     currentSongIndex = randomIndex;
     loadCurrentSong();
 
-    // Check if the audio is paused and play it if it isn't already playing
+    // Start playing if not already playing, and update icons by calling togglePlay
     if (audioPlayer.paused) {
-        audioPlayer.play();
-        playButton.style.display = "none";
-        pauseButton.style.display = "inline";
+        togglePlay(); // Call togglePlay to handle play/pause button switch
+    } else {
+        playButton.style.display = "none"; // Hide play button
+        pauseButton.style.display = "inline"; // Show pause button
     }
 
+    console.log("Shuffled to song:", songList[currentSongIndex].name);
+}
     console.log("Shuffled to song:", songList[currentSongIndex].name);
 }
 
