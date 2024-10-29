@@ -39,19 +39,17 @@ body {
     color: white;
 }
 
-/* Ensure play/pause container is the same size as other icons */
 .play-pause-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px; /* Same as the icon width with padding */
-    height: 44px; /* Same as the icon height with padding */
+    width: 50px; /* Slightly larger width for the play button */
+    height: 50px; /* Slightly larger height for the play button */
+    margin: 0 10px; /* Add margin for spacing */
 }
 
 .play-pause-container i {
-    margin: 0;
-    padding: 0;
-    font-size: 24px;
+    font-size: 30px; /* Increase font size for visibility */
 }
 
 #album-cover {
