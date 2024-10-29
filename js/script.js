@@ -46,21 +46,109 @@ function loadPlaylist() {
     });
 }
 
-// Add mute button functionality
+// Initial Setup
 const audioPlayer = document.getElementById("audio-player");
-const muteButton = document.getElementById("mute-button");
-muteButton.addEventListener("click", toggleMute);
+const playButton = document.getElementById("play-button");
+const pauseButton = document.getElementById("pause-button");
+const repeatButton = document.getElementById("repeat-button");
+const previousButton = document.getElementById("previous-button");
+const volumeControl = document.getElementById("volume-control");
+audioPlayer.volume = 0.5;
 
-function toggleMute() {
-    if (audioPlayer.muted) {
-        audioPlayer.muted = false;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
+let currentSongIndex = 0;
+let isRepeatOn = false;
+
+// Load and play the current song
+function loadCurrentSong() {
+    const currentSong = songList[currentSongIndex];
+    audioPlayer.src = currentSong.soundSrc;
+    document.getElementById('song-title').innerText = currentSong.name;
+    document.getElementById('song-artist').innerText = currentSong.artist;
+    document.getElementById('album-cover').src = currentSong.imageSrc;
+    audioPlayer.load(); // Reload audio element with the new source
+}
+
+// Toggle Play/Pause
+function togglePlay() {
+    if (audioPlayer.paused) {
+        audioPlayer.play().then(() => {
+            playButton.style.display = "none";
+            pauseButton.style.display = "inline";
+        }).catch(error => {
+            console.error("Error playing audio:", error);
+        });
     } else {
-        audioPlayer.muted = true;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
+        audioPlayer.pause();
+        playButton.style.display = "inline";
+        pauseButton.style.display = "none";
     }
 }
 
-// Initial Setup
-const playButton = document.getElementById("play-button");
-const pauseButton = document.getElementBy
+// When the audio ends, either repeat or play the next song
+audioPlayer.addEventListener("ended", function() {
+    if (isRepeatOn) {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+    } else {
+        playNext();
+    }
+});
+
+// Update progress bar during playback
+audioPlayer.addEventListener('timeupdate', function() {
+    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    document.getElementById('progress-bar').value = progressPercentage || 0;
+});
+
+// Seek functionality
+document.getElementById('progress-bar').addEventListener('input', function() {
+    const seekTime = (audioPlayer.duration * (this.value / 100));
+    audioPlayer.currentTime = seekTime;
+});
+
+// Play next song
+function playNext() {
+    currentSongIndex = (currentSongIndex + 1) % songList.length;
+    loadCurrentSong();
+    togglePlay();
+}
+
+// Play previous song
+function playPrevious() {
+    currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length;
+    loadCurrentSong();
+    togglePlay();
+}
+
+// Shuffle to a random song
+function shuffleSong() {
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * songList.length);
+    } while (randomIndex === currentSongIndex);
+    currentSongIndex = randomIndex;
+    loadCurrentSong();
+    togglePlay();
+}
+
+// Toggle repeat mode
+function toggleRepeat() {
+    isRepeatOn = !isRepeatOn;
+    repeatButton.style.color = isRepeatOn ? "green" : "";
+}
+
+// Attach event listeners to buttons
+playButton.addEventListener("click", togglePlay);
+pauseButton.addEventListener("click", togglePlay);
+repeatButton.addEventListener("click", toggleRepeat);
+previousButton.addEventListener("click", playPrevious);
+volumeControl.addEventListener("input", function() {
+    audioPlayer.volume = this.value;
+});
+
+// Initialize the playlist and preload images
+loadPlaylist();
+preloadImages();
+loadCurrentSong();
+
+
