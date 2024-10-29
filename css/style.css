@@ -75,9 +75,11 @@ body {
     margin-right: 20px; /* Add space between the title and artist */
 }
 
+
+
 #album-cover {
-    width: 200px; /* Set the desired width */
-    height: auto; /* Maintain the aspect ratio */
-    max-width: 100%; /* Ensure it doesn't exceed the wrapper width */
-    margin: 10px 0; /* Optional: Add some margin for spacing */
+    width: 150px; /* Set a specific width */
+    height: 150px; /* Set a specific height */
+    object-fit: cover; /* Maintain aspect ratio and fill the box */
+    border-radius: 8px; /* Optional: rounded corners */
 }
