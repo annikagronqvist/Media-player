@@ -1,4 +1,3 @@
-
 // Define the song list
 const songList = [
     {
