@@ -20,6 +20,15 @@ const songList = [
     }
 ];
 
+// Preload images
+function preloadImages() {
+    songList.forEach(song => {
+        const img = new Image();
+        img.src = song.imageSrc; // Preload each image
+    });
+}
+
+
 // Load the playlist dynamically
 const playlistItemsContainer = document.getElementById("playlist-items");
 
@@ -70,12 +79,16 @@ loadCurrentSong();
 
 function loadCurrentSong() {
     audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
+    
+    // Update song details
     document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
     document.getElementById('song-artist').innerText = songList[currentSongIndex].artist; // Update artist name
-
+    
     // Update the album cover image
     document.getElementById('album-cover').src = songList[currentSongIndex].imageSrc; // Set the image source
 
+    // Load the audio and play it when ready
+    audioPlayer.load(); // Ensure the audio is loaded before playing
     audioPlayer.play(); // Start playing the audio
     console.log("Now playing:", songList[currentSongIndex].name);
 }
