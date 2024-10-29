@@ -54,12 +54,10 @@ body {
     font-size: 24px;
 }
 
-/* Updated album cover styles */
 #album-cover {
-    width: 50%; /* Makes the width 50% of its container */
-    height: auto; /* Automatically adjusts height to maintain aspect ratio */
-    max-width: 150px; /* Optional: cap the maximum size */
-    object-fit: cover; /* Keeps aspect ratio while filling area */
+    width: 100px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* Keep aspect ratio while filling the area */
     border-radius: 8px; /* Optional: rounded corners */
     display: block; /* Centers the image within a container */
     margin: 0 auto; /* Centers the image in flex containers */
