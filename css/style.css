@@ -32,13 +32,14 @@ body {
     color: black;
     background-color: lightblue;
     transition: background-color 0.3s, color 0.3s;
+}
 
 .icon-row i:hover {
     background-color: rgba(173, 216, 230, 0.5);
     color: white;
 }
 
-    /* Ensure play/pause container is the same size as other icons */
+/* Ensure play/pause container is the same size as other icons */
 .play-pause-container {
     display: flex;
     align-items: center;
@@ -53,9 +54,11 @@ body {
     font-size: 24px;
 }
 
+/* Updated album cover styles */
 #album-cover {
-    width: 150px; /* Adjust to desired size */
-    height: 150px; /* Maintain same ratio as width */
+    width: 50%; /* Makes the width 50% of its container */
+    height: auto; /* Automatically adjusts height to maintain aspect ratio */
+    max-width: 150px; /* Optional: cap the maximum size */
     object-fit: cover; /* Keeps aspect ratio while filling area */
     border-radius: 8px; /* Optional: rounded corners */
     display: block; /* Centers the image within a container */
