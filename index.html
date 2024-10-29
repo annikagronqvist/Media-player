@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Programmering - Audio Player</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmering - Audio Player</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <audio id="audio-player">
         <source src="" type="audio/mpeg">
     </audio>
 
-    <<div id="wrapper">
-        <!-- Mute Button placed in the upper right corner -->
+    <div id="wrapper">
+        <!-- Mute Button in the upper right corner -->
         <i class="fa-solid fa-volume-xmark" id="mute-button" class="mute-button"></i>
 
         <div id="player-area" class="text-center">
@@ -55,14 +55,45 @@
             </div>
 
             <div id="playlist">
-    <div class="content-row p-20 flex-center">
-        <span class="playlist-item">Playlist:</span>
-    </div>
-    <div id="playlist-items">
-        <!-- Playlist items will be generated here -->
-    </div>
-</div>
+                <div class="content-row p-20 flex-center">
+                    <span id="playlist-label" class="playlist-item">Playlist:</span>
+                </div>
+                
+                <div id="playlist-items">
+                    <!-- Playlist items will be generated here -->
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        // JavaScript for muting the audio player
+        const audioPlayer = document.getElementById("audio-player");
+        const muteButton = document.getElementById("mute-button");
+
+        muteButton.addEventListener("click", function() {
+            if (audioPlayer.muted) {
+                audioPlayer.muted = false;
+                muteButton.classList.remove('fa-volume-off');
+                muteButton.classList.add('fa-volume-xmark'); // Unmuted icon
+            } else {
+                audioPlayer.muted = true;
+                muteButton.classList.remove('fa-volume-xmark');
+                muteButton.classList.add('fa-volume-off'); // Muted icon
+            }
+        });
+
+        // Existing playlist toggle function
+        const playlistLabel = document.getElementById("playlist-label");
+        const playlistItems = document.getElementById("playlist-items");
+
+        playlistLabel.addEventListener("click", function() {
+            if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
+                playlistItems.style.display = "block"; // Show the playlist
+            } else {
+                playlistItems.style.display = "none"; // Hide the playlist
+            }
+        });
+    </script>
 </body>
 </html>
