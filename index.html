@@ -16,7 +16,6 @@
 
     <div id="wrapper">
         <div id="player-area" class="text-center">
-            <input type="range" id="volume-control" min="0" max="1" step="0.01">
             <div class="content-row now-playing p-20">
                 <span class="heading-text">Now Playing</span>
             </div>
@@ -34,21 +33,25 @@
                 <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0" onchange=""></input>
                 <span id="timer-total">0:00</span>
             </div>
+
+            <!-- Button Row positioned here -->
+            <div class="content-row icon-row p-20">
+                <i class="fa-solid fa-arrow-rotate-right" id="repeat-button" onclick="toggleRepeat()"></i> <!-- Repeat button -->
+                <i class="fa-solid fa-backward-step" onclick="playPrevious()"></i> <!-- Previous button -->
+                
+                <!-- Play/Pause button container -->
+                <span class="play-pause-container">
+                    <i class="fa-solid fa-play" id="play-button"></i> <!-- Play button -->
+                    <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i> <!-- Pause button -->
+                </span>
+                
+                <i class="fa-solid fa-forward-step" onclick="playNext()"></i> <!-- Next button -->
+                <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i> <!-- Shuffle button -->
+            </div>
             
-         <!-- Button Row positioned here -->
-<div class="content-row icon-row p-20">
-    <i class="fa-solid fa-arrow-rotate-right" id="repeat-button"></i> <!-- Repeat button -->
-    <i class="fa-solid fa-backward-step" onclick="playPrevious()"></i> <!-- Previous button -->
-    
-    <!-- Play/Pause button container -->
-    <span class="play-pause-container">
-        <i class="fa-solid fa-play" id="play-button"></i> <!-- Play button -->
-        <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i> <!-- Pause button -->
-    </span>
-    
-    <i class="fa-solid fa-forward-step" onclick="playNext()"></i> <!-- Next button -->
-    <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i> <!-- Shuffle button -->
-</div>
+            <!-- Move volume control here -->
+            <input type="range" id="volume-control" min="0" max="1" step="0.01">
+
             <div id="playlist">
                 <div class="content-row p-20 flex-center">
                     <span class="playlist-item">Låtnamn - Artistnamn</span>
