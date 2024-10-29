@@ -1,3 +1,4 @@
+
 // Define the song list
 const songList = [
     {
@@ -28,13 +29,6 @@ function preloadImages() {
     });
 }
 
-// Function to format time in MM:SS
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-}
-
 // Load the playlist items dynamically
 function loadPlaylist() {
     const playlistItemsContainer = document.getElementById("playlist-items");
@@ -53,20 +47,6 @@ function loadPlaylist() {
     });
 }
 
-// Add mute button functionality
-const muteButton = document.getElementById("mute-button");
-muteButton.addEventListener("click", toggleMute);
-
-function toggleMute() {
-    if (audioPlayer.muted) {
-        audioPlayer.muted = false;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
-    } else {
-        audioPlayer.muted = true;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
-    }
-}
-
 // Initial Setup
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
@@ -76,32 +56,8 @@ const previousButton = document.getElementById("previous-button");
 const volumeControl = document.getElementById("volume-control");
 audioPlayer.volume = 0.5;
 
-const muteButton = document.getElementById("mute-button");
-muteButton.addEventListener("click", toggleMute);
-
-function toggleMute() {
-    if (audioPlayer.muted) {
-        audioPlayer.muted = false;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show "unmuted" icon
-    } else {
-        audioPlayer.muted = true;
-        muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show "muted" icon
-    }
-}
-
 let currentSongIndex = 0;
 let isRepeatOn = false;
-
-const playlistLabel = document.getElementById("playlist-label");
-const playlistItems = document.getElementById("playlist-items");
-
-playlistLabel.addEventListener("click", function() {
-    if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
-        playlistItems.style.display = "block"; // Show the playlist
-    } else {
-        playlistItems.style.display = "none"; // Hide the playlist
-    }
-});
 
 // Load and play the current song
 function loadCurrentSong() {
@@ -111,11 +67,6 @@ function loadCurrentSong() {
     document.getElementById('song-artist').innerText = currentSong.artist;
     document.getElementById('album-cover').src = currentSong.imageSrc;
     audioPlayer.load(); // Reload audio element with the new source
-
-    // Set total time once the metadata is loaded
-    audioPlayer.onloadedmetadata = function() {
-        document.getElementById('timer-total').innerText = formatTime(audioPlayer.duration);
-    };
 }
 
 // Toggle Play/Pause
@@ -146,15 +97,8 @@ audioPlayer.addEventListener("ended", function() {
 
 // Update progress bar during playback
 audioPlayer.addEventListener('timeupdate', function() {
-    const currentTime = audioPlayer.currentTime;
-    const duration = audioPlayer.duration;
-
-    // Update the progress bar
-    const progressPercentage = (currentTime / duration) * 100;
+    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     document.getElementById('progress-bar').value = progressPercentage || 0;
-
-    // Update the time displays
-    document.getElementById('timer-now').innerText = formatTime(currentTime);
 });
 
 // Seek functionality
