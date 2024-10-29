@@ -123,7 +123,17 @@ function toggleRepeat() {
     repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
 }
 
+// Function to play the previous song
+function playPrevious() {
+    currentSongIndex--; // Move to the previous song
+    if (currentSongIndex < 0) {
+        currentSongIndex = songList.length - 1; // Go to the last song if at the beginning
+    }
+    loadCurrentSong(); // Load the new song
+}
+
 // Attach event listeners for buttons
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
 repeatButton.addEventListener("click", toggleRepeat);
+document.getElementById("previous-button").addEventListener("click", playPrevious); // Add this line
