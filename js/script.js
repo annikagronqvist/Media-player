@@ -62,6 +62,19 @@ function togglePlay() {
     }
 }
 
+// Update the progress bar as the song plays
+audioPlayer.addEventListener('timeupdate', function() {
+    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    document.getElementById('progress-bar').value = progressPercentage || 0; // Avoid NaN if duration is 0
+});
+
+// Allow users to click on the progress bar to seek to a specific time
+document.getElementById('progress-bar').addEventListener('input', function() {
+    const seekTime = (audioPlayer.duration * (this.value / 100));
+    audioPlayer.currentTime = seekTime; // Set the audio player's current time
+});
+
+
 // Function to play the next song
 function playNext() {
     currentSongIndex++; // Move to the next song
