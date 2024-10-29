@@ -56,3 +56,13 @@ body {
     text-align: center; /* Center text within the item */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
+
+.flex-row {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: space-between; /* Optional: space between the title and artist */
+    align-items: center; /* Center align items vertically */
+}
+
+#song-title, #song-artist {
+    margin-right: 10px; /* Add space between the title and artist */
+}
