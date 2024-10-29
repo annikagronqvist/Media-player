@@ -28,6 +28,13 @@ function preloadImages() {
     });
 }
 
+// Function to format time in MM:SS
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
 // Load the playlist items dynamically
 function loadPlaylist() {
     const playlistItemsContainer = document.getElementById("playlist-items");
@@ -44,13 +51,6 @@ function loadPlaylist() {
         });
         playlistItemsContainer.appendChild(songItem);
     });
-}
-
-// Function to format time in MM:SS
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
 // Add mute button functionality
@@ -142,7 +142,6 @@ audioPlayer.addEventListener('timeupdate', function() {
 
     // Update the time displays
     document.getElementById('timer-now').innerText = formatTime(currentTime);
-    document.getElementById('timer-total').innerText = formatTime(duration || 0);
 });
 
 // Seek functionality
