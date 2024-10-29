@@ -46,5 +46,5 @@ body {
     width: 100%; /* Make the progress bar full width */
 }
 #playlist .playlist-item {
-    margin-right: 10px; /* Adjust the value to create desired spacing */
+    margin-right: 20px; /* Adjust the value to create desired spacing */
 }
