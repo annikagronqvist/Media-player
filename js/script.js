@@ -28,6 +28,17 @@ const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 const repeatButton = document.getElementById("repeat-button");
+// Select the volume control element
+const volumeControl = document.getElementById("volume-control");
+
+// Set the initial volume (optional)
+audioPlayer.volume = 0.5; // Set the initial volume to 50%
+
+// Update the audio player's volume when the volume control is adjusted
+volumeControl.addEventListener("input", function() {
+    audioPlayer.volume = this.value; // Set the audio player's volume to the slider's value
+    console.log("Volume set to:", audioPlayer.volume); // Log the current volume
+});
 
 let currentSongIndex = 0;
 let isRepeatOn = false;
