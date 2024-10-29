@@ -25,17 +25,10 @@ console.log(songList);
 
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
-// Add this inside your script after the audioPlayer setup
-audioPlayer.addEventListener("ended", function() {
-    if (isRepeatOn) {
-        audioPlayer.currentTime = 0; // Reset the song to the beginning
-        audioPlayer.play(); // Play the song again
-    }
-});
-
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
 let currentSongIndex = 0; // To keep track of the current song index
+let isRepeatOn = false; // To track if repeat is on
 
 // Load the first song in the list
 loadCurrentSong(); // Call this function to load the first song when the page loads
@@ -74,7 +67,6 @@ document.getElementById('progress-bar').addEventListener('input', function() {
     audioPlayer.currentTime = seekTime; // Set the audio player's current time
 });
 
-
 // Function to play the next song
 function playNext() {
     currentSongIndex++; // Move to the next song
@@ -84,12 +76,13 @@ function playNext() {
     loadCurrentSong(); // Load the new song
 }
 
-// Listen for when the audio ends to log that event
+// Listen for when the audio ends to log that event and play next song
 audioPlayer.addEventListener("ended", function() {
     console.log("Audio has ended.");
     playNext(); // Automatically play the next song when the current one ends
 });
 
+// Shuffle song function
 function shuffleSong() {
     // Generate a random index that’s different from the current song index
     let randomIndex;
@@ -117,8 +110,6 @@ function shuffleSong() {
 }
 
 // Repeat mode variable
-let isRepeatOn = false;
-
 function toggleRepeat() {
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
