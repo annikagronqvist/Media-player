@@ -1,75 +1,55 @@
 body {
-    background-color: #f0f4f8; /* Light background for the body */
+    background-color: #f0f4f8;
     font-family: Arial, sans-serif;
 }
 
 #wrapper {
-    background-color: #cfd8dc; /* Blue-grey tone for the player */
+    background-color: #cfd8dc;
     padding: 20px;
-    border-radius: 8px; /* Rounded corners for the player */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    max-width: 600px; /* Limit the width of the player */
-    margin: 0 auto; /* Center the player */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .content-row {
-    text-align: center; /* Center the text inside the content row */
+    text-align: center;
+    margin: 10px 0;
 }
 
 .icon-row {
     display: flex;
-    justify-content: center; /* Center the icons */
+    justify-content: center;
 }
 
 .icon-row i {
-    font-size: 24px; /* Icon size */
-    margin: 0 10px; /* Space between icons */
-    padding: 10px; /* Padding for the buttons */
-    border: 2px solid grey; /* Light grey border around buttons */
-    border-radius: 5px; /* Rounded corners for buttons */
-    color: black; /* black color for icons */
-    background-color: lightblue; /* Light blue background for buttons */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    font-size: 24px;
+    margin: 0 10px;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color: lightblue;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .icon-row i:hover {
-    background-color: rgba(173, 216, 230, 0.5); /* Light blue background on hover */
-    color: white; /* Change icon color on hover */
+    background-color: rgba(173, 216, 230, 0.5);
+    color: white;
 }
 
-#volume-control {
-    width: 100%; /* Make the volume slider full width */
+#album-cover {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-#progress-bar {
-    width: 100%; /* Make the progress bar full width */
-}
-
-#playlist-items {
-    display: flex; /* Use flexbox to align items */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-}
-
-.playlist-item {
-    margin: 5px 0; /* Add some space between items */
-    text-align: center; /* Center text within the item */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-.flex-row {
-    display: flex; /* Use flexbox to align items in a row */
-    justify-content: center; /* Center the title and artist */
-    align-items: center; /* Center align items vertically */
-    margin-bottom: 10px; /* Space below the title and artist */
-}
-
-.song-detail {
-    margin: 0 20px; /* Add spacing between title and artist */
-    font-size: 18px; /* Optional: Adjust font size */
-    color: #333; /* Optional: Adjust text color */
-    text-align: center; /* Center text within the spans */
+#volume-control, #progress-bar {
+    width: 100%;
 }
 
 #song-title, #song-artist {
-    margin-right
+    margin: 0 10px;
+    font-size: 18px;
+    color: #333;
+}
