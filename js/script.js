@@ -84,4 +84,9 @@ audioPlayer.addEventListener("ended", function() {
 
 // Update the progress bar as the song plays
 audioPlayer.addEventListener('timeupdate', function() {
-    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) *
+    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    document.getElementById('progress-bar').value = progressPercentage || 0; // Avoid NaN if duration is 0
+});
+
+// Allow users to click on the progress bar to seek to a specific time
+document.getElementById('progress-bar').addEventListener('
