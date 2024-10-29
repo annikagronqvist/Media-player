@@ -3,19 +3,19 @@ const songList = [
     {
         name: "Fade",
         artist: "Alan Walker",
-        imageSrc: "img/Walker.jpg",
+        imageSrc: "img/Walker.jpg", // Update paths as necessary
         soundSrc: "audio/Alan Walker - Fade.mp3"
     },
     {
         name: "Arc",
         artist: "NCS",
-        imageSrc: "img/NCS.jpg",
+        imageSrc: "img/NCS.jpg", // Update paths as necessary
         soundSrc: "audio/NCS - Ark.mp3"
     },
     {
         name: "Weapon",
         artist: "M4SONIC",
-        imageSrc: "img/Sonic.jpg",
+        imageSrc: "img/Sonic.jpg", // Update paths as necessary
         soundSrc: "audio/M4SONIC - Weapon.mp3"
     }
 ];
@@ -27,7 +27,6 @@ function preloadImages() {
         img.src = song.imageSrc; // Preload each image
     });
 }
-
 
 // Load the playlist dynamically
 const playlistItemsContainer = document.getElementById("playlist-items");
@@ -48,11 +47,9 @@ function loadPlaylist() {
     });
 }
 
-// Call loadPlaylist after the songList is defined
+// Call loadPlaylist and preloadImages after the songList is defined
 loadPlaylist();
-
-// Log songList to check if paths are correct
-console.log(songList);
+preloadImages();
 
 // Select the audio player and buttons
 const audioPlayer = document.getElementById("audio-player");
@@ -65,29 +62,17 @@ const volumeControl = document.getElementById("volume-control");
 // Set the initial volume (optional)
 audioPlayer.volume = 0.5; // Set the initial volume to 50%
 
-// Update the audio player's volume when the volume control is adjusted
-volumeControl.addEventListener("input", function() {
-    audioPlayer.volume = this.value; // Set the audio player's volume to the slider's value
-    console.log("Volume set to:", audioPlayer.volume); // Log the current volume
-});
-
+// Load the first song in the list
 let currentSongIndex = 0;
 let isRepeatOn = false;
 
-// Load the first song in the list
-loadCurrentSong();
-
+// Load the current song details and play
 function loadCurrentSong() {
     audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
-    
-    // Update song details
     document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
     document.getElementById('song-artist').innerText = songList[currentSongIndex].artist; // Update artist name
-    
-    // Update the album cover image
     document.getElementById('album-cover').src = songList[currentSongIndex].imageSrc; // Set the image source
 
-    // Load the audio and play it when ready
     audioPlayer.load(); // Ensure the audio is loaded before playing
     audioPlayer.play(); // Start playing the audio
     console.log("Now playing:", songList[currentSongIndex].name);
