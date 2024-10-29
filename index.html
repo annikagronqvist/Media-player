@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmering - Audio Player</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .content-row {
+            display: flex;
+            justify-content: center; /* Center the content */
+            align-items: center; /* Align items vertically */
+            margin: 10px 0; /* Add some margin for spacing */
+        }
+
+        #volume-control {
+            width: 80%; /* Adjust volume control width */
+        }
+    </style>
 </head>
 <body>
+    <p>Hello world</p>
+    <audio id="audio-player">
+        <source src="" type="audio/mpeg">
+    </audio>
+
     <div id="wrapper">
         <div id="player-area" class="text-center">
             <!-- Now Playing section -->
@@ -16,12 +33,12 @@
                 <span class="heading-text">Now Playing</span>
             </div>
             
-            <div class="content-row">
-                <div id="song-info" class="flex-row">
-                    <span id="song-title" class="song-detail"></span>
-                    <span id="song-artist" class="song-detail"></span>
-                </div>
-            </div>
+         <div class="content-row">
+    <div id="song-info" class="flex-row"> <!-- Container for song title and artist -->
+        <span id="song-title" class="song-detail"></span>
+        <span id="song-artist" class="song-detail"></span>
+    </div>
+</div>
 
             <div class="content-row flex-center">
                 <img src="" id="album-cover" class="responsive-img" alt="Cover image">
@@ -29,23 +46,26 @@
             
             <div class="content-row">
                 <span id="timer-now">0:00</span>            
-                <input type="range" id="progress-bar" min="0" max="100" step="1" value="0">
+                <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0"></input>
                 <span id="timer-total">0:00</span>
             </div>
 
-            <!-- Button Row -->
+            <!-- Button Row positioned here -->
             <div class="content-row icon-row p-20">
-                <i class="fa-solid fa-arrow-rotate-right" id="repeat-button"></i>
-                <i class="fa-solid fa-backward-step" id="previous-button"></i>
+                <i class="fa-solid fa-arrow-rotate-right" id="repeat-button"></i> <!-- Repeat button -->
+                <i class="fa-solid fa-backward-step" id="previous-button"></i> <!-- Previous button -->
+                
+                <!-- Play/Pause button container -->
                 <span class="play-pause-container">
-                    <i class="fa-solid fa-play" id="play-button"></i>
-                    <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i>
+                    <i class="fa-solid fa-play" id="play-button"></i> <!-- Play button -->
+                    <i class="fa-solid fa-pause" id="pause-button" style="display: none;"></i> <!-- Pause button -->
                 </span>
-                <i class="fa-solid fa-forward-step" onclick="playNext()"></i>
-                <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i>
+                
+                <i class="fa-solid fa-forward-step" onclick="playNext()"></i> <!-- Next button -->
+                <i class="fa-solid fa-shuffle" onclick="shuffleSong()"></i> <!-- Shuffle button -->
             </div>
 
-            <!-- Volume control -->
+            <!-- Volume control here -->
             <div class="content-row">
                 <input type="range" id="volume-control" min="0" max="1" step="0.01">
             </div>
@@ -61,9 +81,3 @@
             </div>
         </div>
     </div>
-    
-    <audio id="audio-player">
-        <source src="" type="audio/mpeg">
-    </audio>
-</body>
-</html>
