@@ -1,17 +1,3 @@
-// Debounce function to limit how often a function can be executed
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-
 // Song list array
 const songList = [
     {
@@ -119,6 +105,7 @@ function shuffleSong() {
 
 // Function to toggle repeat mode
 function toggleRepeat() {
+    console.log("Toggle repeat called"); // Log to see if it's called multiple times
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
 
@@ -130,7 +117,10 @@ function toggleRepeat() {
     }
 }
 
+// Ensure single event listener
+repeatButton.removeEventListener("click", toggleRepeat); // Remove any existing listener
+repeatButton.addEventListener("click", toggleRepeat); // Attach listener
+
 // Play button click event
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
-repeatButton.addEventListener("click", toggleRepeat); // Attach event listener here
