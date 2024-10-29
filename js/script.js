@@ -72,6 +72,8 @@ function loadCurrentSong() {
     audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
     document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
     document.getElementById('song-artist').innerText = songList[currentSongIndex].artist; // Update artist name
+     document.getElementById('album-cover').src = songList[currentSongIndex].imageSrc; // Update album cover image
+    document.getElementById('album-cover').alt = `Cover for ${songList[currentSongIndex].name}`; // Optional: Set alt text for accessibility
     audioPlayer.play(); // Start playing the audio
     console.log("Now playing:", songList[currentSongIndex].name);
 }
