@@ -3,19 +3,19 @@ const songList = [
     {
         name: "Fade",
         artist: "Alan Walker",
-        imageSrc: "img/Walker.jpg", // Ensure the image path is correct
+        imageSrc: "img/Walker.jpg", // Update paths as necessary
         soundSrc: "audio/Alan Walker - Fade.mp3"
     },
     {
         name: "Arc",
         artist: "NCS",
-        imageSrc: "img/NCS.jpg", // Ensure the image path is correct
+        imageSrc: "img/NCS.jpg", // Update paths as necessary
         soundSrc: "audio/NCS - Ark.mp3"
     },
     {
         name: "Weapon",
         artist: "M4SONIC",
-        imageSrc: "img/Sonic.jpg", // Ensure the image path is correct
+        imageSrc: "img/Sonic.jpg", // Update paths as necessary
         soundSrc: "audio/M4SONIC - Weapon.mp3"
     }
 ];
