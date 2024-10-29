@@ -74,9 +74,17 @@ function shuffleSong() {
     do {
         randomIndex = Math.floor(Math.random() * songList.length);
     } while (randomIndex === currentSongIndex);
-    
+
     currentSongIndex = randomIndex;
     loadCurrentSong();
+
+    // Check if the audio is paused and play it if it isn't already playing
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.style.display = "none";
+        pauseButton.style.display = "inline";
+    }
+
     console.log("Shuffled to song:", songList[currentSongIndex].name);
 }
 
