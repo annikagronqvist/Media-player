@@ -45,6 +45,14 @@ body {
 #progress-bar {
     width: 100%; /* Make the progress bar full width */
 }
-#playlist .playlist-item {
-    margin-right: 20px; /* Adjust the value to create desired spacing */
+#playlist-items {
+    display: flex; /* Use flexbox to align items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.playlist-item {
+    margin: 5px 0; /* Add some space between items */
+    text-align: center; /* Center text within the item */
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
