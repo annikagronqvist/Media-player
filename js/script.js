@@ -27,6 +27,8 @@ console.log(songList);
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
+const repeatButton = document.getElementById("repeat-button"); // Repeat button icon
+
 let currentSongIndex = 0; // To keep track of the current song index
 let isRepeatOn = false; // To track if repeat is on
 
@@ -108,4 +110,4 @@ function toggleRepeat() {
 // Play button click event
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
-document.getElementById("repeat-button").addEventListener("click", toggleRepeat);
+repeatButton.addEventListener("click", toggleRepeat); // Attach event listener here
