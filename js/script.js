@@ -25,6 +25,14 @@ console.log(songList);
 
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
+// Add this inside your script after the audioPlayer setup
+audioPlayer.addEventListener("ended", function() {
+    if (isRepeatOn) {
+        audioPlayer.currentTime = 0; // Reset the song to the beginning
+        audioPlayer.play(); // Play the song again
+    }
+});
+
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
 let currentSongIndex = 0; // To keep track of the current song index
