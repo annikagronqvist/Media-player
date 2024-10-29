@@ -25,6 +25,24 @@ console.log(songList);
 
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
+// Repeat mode variable
+let isRepeatOn = false;
+
+// Function to toggle repeat mode
+function toggleRepeat() {
+    isRepeatOn = !isRepeatOn; // Toggle repeat mode
+    console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
+}
+
+// Listen for when the audio ends to handle repeat functionality
+audioPlayer.addEventListener("ended", function() {
+    if (isRepeatOn) {
+        audioPlayer.currentTime = 0; // Reset the song to the beginning
+        audioPlayer.play(); // Play the song again
+    } else {
+        playNext(); // Play the next song if repeat is not on
+    }
+});
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
 let currentSongIndex = 0; // To keep track of the current song index
@@ -76,10 +94,14 @@ function playNext() {
     loadCurrentSong(); // Load the new song
 }
 
-// Listen for when the audio ends to log that event and play next song
+// Listen for when the audio ends to handle repeat functionality
 audioPlayer.addEventListener("ended", function() {
-    console.log("Audio has ended.");
-    playNext(); // Automatically play the next song when the current one ends
+    if (isRepeatOn) {
+        audioPlayer.currentTime = 0; // Reset the song to the beginning
+        audioPlayer.play(); // Play the song again
+    } else {
+        playNext(); // Play the next song if repeat is not on
+    }
 });
 
 // Shuffle song function
