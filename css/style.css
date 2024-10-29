@@ -21,18 +21,19 @@ body {
     justify-content: center; /* Center the icons */
 }
 
-.icon-row i {
+.icon-button {
     font-size: 24px; /* Icon size */
     margin: 0 10px; /* Space between icons */
     padding: 10px; /* Padding for the buttons */
     border: 2px solid #555; /* Dark grey border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
-    color: lightblue; /* Light blue color for icons */
+    background-color: #add8e6; /* Light blue background for buttons */
+    color: #000; /* Dark text color for better contrast */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
-.icon-row i:hover {
-    background-color: rgba(173, 216, 230, 0.5); /* Light blue background on hover */
+.icon-button:hover {
+    background-color: #87cefa; /* Slightly darker light blue on hover */
     color: white; /* Change icon color on hover */
 }
 
