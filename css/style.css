@@ -61,11 +61,14 @@ body {
     display: flex; /* Use flexbox to align items in a row */
     justify-content: center; /* Center the title and artist */
     align-items: center; /* Center align items vertically */
+    margin-bottom: 10px; /* Space below the title and artist */
 }
 
 .song-detail {
     margin: 0 10px; /* Add spacing between title and artist */
     text-align: center; /* Center text within the spans */
+    font-size: 18px; /* Optional: Adjust font size */
+    color: #333; /* Optional: Adjust text color */
 }
 
 #song-title, #song-artist {
