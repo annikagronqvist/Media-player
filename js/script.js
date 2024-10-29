@@ -92,35 +92,24 @@ function playNext() {
 
 // Shuffle song function
 function shuffleSong() {
-    // Generate a random index that’s different from the current song index
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * songList.length);
     } while (randomIndex === currentSongIndex);
-
-    // Set the new current song index and load the new song
     currentSongIndex = randomIndex;
     loadCurrentSong();
 }
 
 // Function to toggle repeat mode
 function toggleRepeat() {
-    console.log("Toggle repeat called"); // Log to see if it's called multiple times
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
 
     // Optional: Change the appearance of the repeat button based on its state
-    if (isRepeatOn) {
-        repeatButton.style.color = "green"; // Change color to indicate it's active
-    } else {
-        repeatButton.style.color = ""; // Reset color
-    }
+    repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
 }
 
-// Ensure single event listener
-repeatButton.removeEventListener("click", toggleRepeat); // Remove any existing listener
-repeatButton.addEventListener("click", toggleRepeat); // Attach listener
-
-// Play button click event
+// Attach event listeners for buttons
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
+repeatButton.addEventListener("click", toggleRepeat);
