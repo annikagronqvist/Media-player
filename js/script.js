@@ -23,7 +23,7 @@ const songList = [
 // Log songList to check if paths are correct
 console.log(songList);
 
-// Select the audio player and play button
+// Select the audio player and buttons
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
@@ -59,9 +59,11 @@ function togglePlay() {
 
 // Listen for when the audio ends to handle repeat functionality
 audioPlayer.addEventListener("ended", function() {
+    console.log("Audio has ended. Repeat is", isRepeatOn ? "ON" : "OFF");
     if (isRepeatOn) {
         audioPlayer.currentTime = 0; // Reset the song to the beginning
         audioPlayer.play(); // Play the song again
+        console.log("Playing the song again due to repeat");
     } else {
         playNext(); // Play the next song if repeat is not on
     }
@@ -105,6 +107,13 @@ function shuffleSong() {
 function toggleRepeat() {
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
+
+    // Optional: Change the appearance of the repeat button based on its state
+    if (isRepeatOn) {
+        repeatButton.style.color = "green"; // Change color to indicate it's active
+    } else {
+        repeatButton.style.color = ""; // Reset color
+    }
 }
 
 // Play button click event
