@@ -72,4 +72,13 @@ body {
 }
 
 #song-title, #song-artist {
-    margin-right
+    margin-right 
+}
+
+
+    #album-cover {
+    width: 120px; /* Example size */
+    height: auto; /* Keep the aspect ratio */
+    margin: 10px; /* Adds space around the image */
+}
+
