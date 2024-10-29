@@ -1,119 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmering - Audio Player</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
-    
-    <style>
-        body {
-            background-color: #f0f4f8;
-            font-family: Arial, sans-serif;
-        }
-
-        #wrapper {
-            background-color: #cfd8dc;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative; /* Allow positioning of child elements */
-        }
-
-        .mute-button {
-            font-size: 24px;   /* Size of the icon */
-            cursor: pointer;    /* Pointer on hover */
-            background: none;   /* No background */
-            border: none;       /* No border */
-            color: black;       /* Icon color */
-            margin-top: 10px;   /* Space from the player */
-        }
-
-        .mute-button:hover {
-            color: red; /* Change color on hover for better UX */
-        }
-
-        .content-row {
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .icon-row {
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Ensure vertical alignment of icons */
-        }
-
-        .icon-row i {
-            font-size: 24px;
-            margin: 0 10px;
-            padding: 10px;
-            border: 2px solid grey;
-            border-radius: 5px;
-            color: black;
-            background-color: lightblue;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .icon-row i:hover {
-            background-color: rgba(173, 216, 230, 0.5);
-            color: white;
-        }
-
-        .play-pause-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px; /* Slightly larger width for the play button */
-            height: 50px; /* Slightly larger height for the play button */
-            margin: 0 10px; /* Add margin for spacing */
-        }
-
-        .play-pause-container i {
-            font-size: 30px; /* Increase font size for visibility */
-        }
-
-        #album-cover {
-            width: 100px; /* Set a fixed width */
-            height: 100px; /* Set a fixed height */
-            object-fit: cover; /* Keep aspect ratio while filling the area */
-            border-radius: 8px; /* Optional: rounded corners */
-            display: block; /* Centers the image within a container */
-            margin: 10px auto; /* Centers the image in flex containers */
-        }
-
-        #volume-control, #progress-bar {
-            width: 100%;
-        }
-
-        #song-title, #song-artist {
-            margin: 0 10px;
-            font-size: 18px;
-            color: #333;
-        }
-
-        #playlist {
-            text-align: center; /* Center align text inside the playlist */
-        }
-
-        #playlist-items {
-            display: none; /* Initially hidden */
-            text-align: center;
-        }
-        
-        .playlist-item {
-            cursor: pointer; /* Change cursor to pointer for clickable items */
-            color: #007BFF; /* Change color to indicate it's clickable */
-            text-decoration: underline; /* Underline for emphasis */
-        }
-
-        .playlist-item:hover {
-            color: #0056b3; /* Darker color on hover */
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <audio id="audio-player">
@@ -159,47 +52,14 @@
             </div>
 
             <div id="playlist">
-                <div class="content-row p-20 flex-center">
-                    <span id="playlist-label" class="playlist-item">Playlist:</span>
-                </div>
-                
-                <div id="playlist-items">
-                    <!-- Playlist items will be generated here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Mute Button at the bottom of the player -->
-        <button class="mute-button" id="mute-button">
-            <i class="fa-solid fa-volume-xmark"></i>
-        </button>
+    <div class="content-row p-20 flex-center">
+        <span class="playlist-item">Playlist:</span>
     </div>
-
-    <script>
-        // JavaScript for muting the audio player
-        const audioPlayer = document.getElementById("audio-player");
-        const muteButton = document.getElementById("mute-button");
-
-        muteButton.addEventListener("click", function() {
-            audioPlayer.muted = !audioPlayer.muted; // Toggle mute
-            if (audioPlayer.muted) {
-                muteButton.innerHTML = '<i class="fa-solid fa-volume-off"></i>'; // Show muted icon
-            } else {
-                muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Show unmuted icon
-            }
-        });
-
-        // Existing playlist toggle function
-        const playlistLabel = document.getElementById("playlist-label");
-        const playlistItems = document.getElementById("playlist-items");
-
-        playlistLabel.addEventListener("click", function() {
-            if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
-                playlistItems.style.display = "block"; // Show the playlist
-            } else {
-                playlistItems.style.display = "none"; // Hide the playlist
-            }
-        });
-    </script>
+    <div id="playlist-items">
+        <!-- Playlist items will be generated here -->
+    </div>
+</div>
+        </div>
+    </div>
 </body>
 </html>
