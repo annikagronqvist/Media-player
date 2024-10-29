@@ -28,7 +28,7 @@ const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 const repeatButton = document.getElementById("repeat-button");
-// Select the volume control element
+const previousButton = document.getElementById("previous-button"); // Added for previous button
 const volumeControl = document.getElementById("volume-control");
 
 // Set the initial volume (optional)
@@ -103,6 +103,15 @@ function playNext() {
     loadCurrentSong(); // Load the new song
 }
 
+// Function to play the previous song
+function playPrevious() {
+    currentSongIndex--; // Decrease the current song index
+    if (currentSongIndex < 0) {
+        currentSongIndex = songList.length - 1; // Wrap around to the last song
+    }
+    loadCurrentSong(); // Load the new song
+}
+
 // Shuffle song function
 function shuffleSong() {
     let randomIndex;
@@ -123,17 +132,8 @@ function toggleRepeat() {
     repeatButton.style.color = isRepeatOn ? "green" : ""; // Change color to indicate active state
 }
 
-// Function to play the previous song
-function playPrevious() {
-    currentSongIndex--; // Move to the previous song
-    if (currentSongIndex < 0) {
-        currentSongIndex = songList.length - 1; // Go to the last song if at the beginning
-    }
-    loadCurrentSong(); // Load the new song
-}
-
 // Attach event listeners for buttons
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
 repeatButton.addEventListener("click", toggleRepeat);
-document.getElementById("previous-button").addEventListener("click", playPrevious); // Add this line
+previousButton.addEventListener("click", playPrevious); // Attach event listener to the previous button
