@@ -3,64 +3,43 @@ body {
     font-family: Arial, sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-i {
-    font-size: 1.8rem;
-}
-
 #wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-#player-area {
-    width: 500px;
-    border: 1px solid lightgrey;
-    padding: 15px;
+    background-color: #cfd8dc; /* Blue-grey tone for the player */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the player */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    max-width: 600px; /* Limit the width of the player */
+    margin: 0 auto; /* Center the player */
 }
 
 .content-row {
-    width: 100%;
-    display: flex;
+    margin-bottom: 15px; /* Space between rows */
 }
 
-.p-20 {
-    padding: 20px;
-}
-
-/* Center the icons in the button row and add spacing */
 .icon-row {
-    justify-content: center; /* Center the buttons */
-    gap: 60px; /* Space between buttons (you can adjust this value) */
+    display: flex;
+    justify-content: center; /* Center the icons */
 }
 
-/* Remove default margins for buttons */
 .icon-row i {
-    margin: 0; /* Ensure no default margin is applied */
+    font-size: 24px; /* Icon size */
+    margin: 0 10px; /* Space between icons */
+    padding: 10px; /* Padding for the buttons */
+    border: 2px solid lightblue; /* Light blue border around buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    color: lightblue; /* Light blue color for icons */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
-.now-playing {
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.8rem;
+.icon-row i:hover {
+    background-color: rgba(173, 216, 230, 0.5); /* Light blue background on hover */
+    color: white; /* Change icon color on hover */
 }
 
-.responsive-img {
-    max-width: 100%;
-    height: auto;
+#volume-control {
+    width: 100%; /* Make the volume slider full width */
 }
 
-.text-center {
-    text-align: center;
-}
-
-.flex-center {
-    justify-content: center;
-}
-
-.width-100 {
-    width: 100%;
+#progress-bar {
+    width: 100%; /* Make the progress bar full width */
 }
