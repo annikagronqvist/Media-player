@@ -14,6 +14,9 @@
     </audio>
 
     <div id="wrapper">
+        <div id="mute-button" class="mute-button">
+    <i class="fa-solid fa-volume-xmark"></i>
+</div>
         <div id="player-area" class="text-center">
             <div class="content-row now-playing p-20">
                 <span class="heading-text">Now Playing</span>
@@ -52,31 +55,14 @@
             </div>
 
             <div id="playlist">
-                <div class="content-row p-20 flex-center">
-                    <!-- Add the id "playlist-label" to the Playlist label -->
-                    <span id="playlist-label" class="playlist-item">Playlist:</span>
-                </div>
-                
-                <!-- Ensure playlist items are initially hidden -->
-                <div id="playlist-items">
-                    <!-- Playlist items will be generated here -->
-                </div>
-            </div>
+    <div class="content-row p-20 flex-center">
+        <span class="playlist-item">Playlist:</span>
+    </div>
+    <div id="playlist-items">
+        <!-- Playlist items will be generated here -->
+    </div>
+</div>
         </div>
     </div>
-
-    <script>
-        // JavaScript to toggle playlist visibility
-        const playlistLabel = document.getElementById("playlist-label");
-        const playlistItems = document.getElementById("playlist-items");
-
-        playlistLabel.addEventListener("click", function() {
-            if (playlistItems.style.display === "none" || playlistItems.style.display === "") {
-                playlistItems.style.display = "block"; // Show the playlist
-            } else {
-                playlistItems.style.display = "none"; // Hide the playlist
-            }
-        });
-    </script>
 </body>
 </html>
