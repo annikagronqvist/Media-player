@@ -25,24 +25,6 @@ console.log(songList);
 
 // Select the audio player and play button
 const audioPlayer = document.getElementById("audio-player");
-// Repeat mode variable
-let isRepeatOn = false;
-
-// Function to toggle repeat mode
-function toggleRepeat() {
-    isRepeatOn = !isRepeatOn; // Toggle repeat mode
-    console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
-}
-
-// Listen for when the audio ends to handle repeat functionality
-audioPlayer.addEventListener("ended", function() {
-    if (isRepeatOn) {
-        audioPlayer.currentTime = 0; // Reset the song to the beginning
-        audioPlayer.play(); // Play the song again
-    } else {
-        playNext(); // Play the next song if repeat is not on
-    }
-});
 const playButton = document.getElementById("play-button"); // Play button icon
 const pauseButton = document.getElementById("pause-button"); // Pause button icon
 let currentSongIndex = 0; // To keep track of the current song index
@@ -73,6 +55,16 @@ function togglePlay() {
     }
 }
 
+// Listen for when the audio ends to handle repeat functionality
+audioPlayer.addEventListener("ended", function() {
+    if (isRepeatOn) {
+        audioPlayer.currentTime = 0; // Reset the song to the beginning
+        audioPlayer.play(); // Play the song again
+    } else {
+        playNext(); // Play the next song if repeat is not on
+    }
+});
+
 // Update the progress bar as the song plays
 audioPlayer.addEventListener('timeupdate', function() {
     const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -94,16 +86,6 @@ function playNext() {
     loadCurrentSong(); // Load the new song
 }
 
-// Listen for when the audio ends to handle repeat functionality
-audioPlayer.addEventListener("ended", function() {
-    if (isRepeatOn) {
-        audioPlayer.currentTime = 0; // Reset the song to the beginning
-        audioPlayer.play(); // Play the song again
-    } else {
-        playNext(); // Play the next song if repeat is not on
-    }
-});
-
 // Shuffle song function
 function shuffleSong() {
     // Generate a random index that’s different from the current song index
@@ -115,23 +97,9 @@ function shuffleSong() {
     // Set the new current song index and load the new song
     currentSongIndex = randomIndex;
     loadCurrentSong();
-
-    // Check if the player is paused, then play and update icons accordingly
-    if (audioPlayer.paused) {
-        // If audio is paused, play it and update icons
-        audioPlayer.play();
-        playButton.style.display = "none"; // Hide play button
-        pauseButton.style.display = "inline"; // Show pause button
-    } else {
-        // If audio is already playing, reload the song and make sure icons are correct
-        playButton.style.display = "none"; // Hide play button
-        pauseButton.style.display = "inline"; // Show pause button
-    }
-
-    console.log("Shuffled to song:", songList[currentSongIndex].name);
 }
 
-// Repeat mode variable
+// Function to toggle repeat mode
 function toggleRepeat() {
     isRepeatOn = !isRepeatOn; // Toggle repeat mode
     console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
@@ -140,3 +108,4 @@ function toggleRepeat() {
 // Play button click event
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
+document.getElementById("repeat-button").addEventListener("click", toggleRepeat);
