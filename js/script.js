@@ -46,7 +46,6 @@ let isRepeatOn = false;
 // Load the first song in the list
 loadCurrentSong();
 
-// Function to load the current song based on currentSongIndex
 function loadCurrentSong() {
     audioPlayer.src = songList[currentSongIndex].soundSrc; // Set audio source
     document.getElementById('song-title').innerText = songList[currentSongIndex].name; // Update song title
