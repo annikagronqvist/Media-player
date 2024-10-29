@@ -20,6 +20,28 @@ const songList = [
     }
 ];
 
+// Load the playlist dynamically
+const playlistItemsContainer = document.getElementById("playlist-items");
+
+function loadPlaylist() {
+    songList.forEach((song, index) => {
+        const songItem = document.createElement("div");
+        songItem.className = "playlist-item";
+        songItem.innerText = `${song.name} - ${song.artist}`;
+        
+        // Optional: Add click event to play the selected song
+        songItem.addEventListener("click", () => {
+            currentSongIndex = index; // Set the current song index to the clicked song
+            loadCurrentSong(); // Load and play the selected song
+        });
+        
+        playlistItemsContainer.appendChild(songItem);
+    });
+}
+
+// Call loadPlaylist after the songList is defined
+loadPlaylist();
+
 // Log songList to check if paths are correct
 console.log(songList);
 
