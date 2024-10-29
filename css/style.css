@@ -13,7 +13,7 @@ body {
 }
 
 .content-row {
-    margin-bottom: 15px; /* Space between rows */
+     text-align: center; /* Center the text inside the content row */
 }
 
 .icon-row {
@@ -59,7 +59,7 @@ body {
 
 .flex-row {
     display: flex; /* Use flexbox to align items in a row */
-    justify-content: space-between; /* Optional: space between the title and artist */
+      justify-content: center; /* Center the title and artist */
     align-items: center; /* Center align items vertically */
 }
 
