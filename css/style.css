@@ -74,6 +74,10 @@ body {
     text-align: center; /* Center align text inside the playlist */
 }
 
+#playlist-items {
+    display: none; /* Initially hidden */
+    text-align: center;
+}
 .playlist-item {
     cursor: pointer; /* Change cursor to pointer for clickable items */
     color: #007BFF; /* Change color to indicate it's clickable */
