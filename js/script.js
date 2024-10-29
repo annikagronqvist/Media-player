@@ -95,6 +95,14 @@ function shuffleSong() {
     console.log("Shuffled to song:", songList[currentSongIndex].name);
 }
 
+// Repeat mode variable
+let isRepeatOn = false;
+
+function toggleRepeat() {
+    isRepeatOn = !isRepeatOn; // Toggle repeat mode
+    console.log("Repeat is now", isRepeatOn ? "ON" : "OFF");
+}
+
 // Play button click event
 playButton.addEventListener("click", togglePlay);
 pauseButton.addEventListener("click", togglePlay);
