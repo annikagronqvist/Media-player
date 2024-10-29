@@ -72,7 +72,7 @@ function loadCurrentSong() {
     audioPlayer.src = currentSong.soundSrc; // Set audio source
     document.getElementById('song-title').innerText = currentSong.name; // Update song title
     document.getElementById('song-artist').innerText = currentSong.artist; // Update artist name
-    document.getElementById('album-cover').src = `img/${currentSong.imageSrc}`; // Update album cover
+    document.getElementById('album-cover').src = currentSong.imageSrc; // Update album cover
     audioPlayer.play(); // Start playing the audio
     console.log("Now playing:", currentSong.name);
 }
