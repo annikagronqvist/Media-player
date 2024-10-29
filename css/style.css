@@ -1,5 +1,5 @@
 body {
-    background-color: white; /* Light background for the body */
+    background-color: #f0f4f8; /* Light background for the body */
     font-family: Arial, sans-serif;
 }
 
@@ -25,7 +25,7 @@ body {
     font-size: 24px; /* Icon size */
     margin: 0 10px; /* Space between icons */
     padding: 10px; /* Padding for the buttons */
-    border: 2px solid lightblue; /* Light blue border around buttons */
+    border: 2px solid black; /* Black border around buttons */
     border-radius: 5px; /* Rounded corners for buttons */
     color: lightblue; /* Light blue color for icons */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
