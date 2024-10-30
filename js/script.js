@@ -75,7 +75,6 @@ function loadCurrentSong() {
     likeButton.classList.toggle('liked', currentSong.liked); // Update class based on liked status
     likeButton.querySelector('i').style.color = currentSong.liked ? 'red' : 'black'; // Set the color accordingly
 }
-
 // Toggle Play/Pause
 function togglePlay() {
     if (audioPlayer.paused) {
