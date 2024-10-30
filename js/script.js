@@ -190,11 +190,3 @@ function toggleLike() {
         console.log("Unliked!");
     }
 }
-
-    // Optional: Log or alert the "liked" state
-   // if (likeButton.classList.contains('liked')) {
-  //      console.log("Liked!");
-  //  } else {
-  //      console.log("Unliked!");
-   // }
-//}
