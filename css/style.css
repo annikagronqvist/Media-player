@@ -102,3 +102,19 @@ body {
 #player-area {
     position: relative; /* Allows absolute positioning of children within this area */
 }
+.like-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.like-button.liked {
+    color: red; /* Changes color to red when "liked" */
+}
