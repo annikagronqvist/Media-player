@@ -67,8 +67,6 @@ function loadCurrentSong() {
     document.getElementById('album-cover').src = currentSong.imageSrc;
     audioPlayer.load(); // Reload audio element with the new source
     
-    // Reset the like button when a new song is loaded
-    resetLikeButton();
 }
 
 // Function to reset the like button
@@ -179,10 +177,13 @@ function toggleMute() {
 
 function toggleLike() {
     const likeButton = document.querySelector('.like-button');
-    likeButton.classList.toggle('liked'); // Toggle the "liked" class
+    likedState = !likedState; // Toggle the liked state
+
+    // Change the "liked" class based on the new liked state
+    likeButton.classList.toggle('liked', likedState);
 
     // Change icon color based on the liked state
-    if (likeButton.classList.contains('liked')) {
+    if (likedState) {
         likeButton.querySelector('i').style.color = 'red'; // Change to red when liked
         console.log("Liked!");
     } else {
