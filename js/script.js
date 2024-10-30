@@ -66,6 +66,17 @@ function loadCurrentSong() {
     document.getElementById('song-artist').innerText = currentSong.artist;
     document.getElementById('album-cover').src = currentSong.imageSrc;
     audioPlayer.load(); // Reload audio element with the new source
+    
+    // Reset the like button when a new song is loaded
+    resetLikeButton();
+}
+
+// Function to reset the like button
+function resetLikeButton() {
+    const likeButton = document.querySelector('.like-button');
+    likeButton.classList.remove('liked'); // Remove the "liked" class
+    likeButton.querySelector('i').style.color = 'black'; // Reset the icon color
+    console.log("Like button reset");
 }
 
 // Toggle Play/Pause
@@ -170,10 +181,20 @@ function toggleLike() {
     const likeButton = document.querySelector('.like-button');
     likeButton.classList.toggle('liked'); // Toggle the "liked" class
 
-    // Optional: Log or alert the "liked" state
+    // Change icon color based on the liked state
     if (likeButton.classList.contains('liked')) {
+        likeButton.querySelector('i').style.color = 'red'; // Change to red when liked
         console.log("Liked!");
     } else {
+        likeButton.querySelector('i').style.color = 'black'; // Change back to default color
         console.log("Unliked!");
     }
 }
+
+    // Optional: Log or alert the "liked" state
+   // if (likeButton.classList.contains('liked')) {
+  //      console.log("Liked!");
+  //  } else {
+  //      console.log("Unliked!");
+   // }
+//}
