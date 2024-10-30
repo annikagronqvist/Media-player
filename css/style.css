@@ -99,3 +99,6 @@ body {
 .mute-button i:hover {
     color: #ff0000; /* Optional: Change color on hover */
 }
+#player-area {
+    position: relative; /* Allows absolute positioning of children within this area */
+}
