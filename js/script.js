@@ -4,22 +4,22 @@ const songList = [
         name: "Fade",
         artist: "Alan Walker",
         imageSrc: "img/Walker.jpg",
-        soundSrc: "audio/Alan Walker - Fade.mp3"
-        liked: false // New property to track like status
+        soundSrc: "audio/Alan Walker - Fade.mp3",
+        liked: false // Ensure this is added correctly
     },
     {
         name: "Arc",
         artist: "NCS",
         imageSrc: "img/NCS.jpg",
-        soundSrc: "audio/NCS - Ark.mp3"
-        liked: false // New property to track like status
+        soundSrc: "audio/NCS - Ark.mp3",
+        liked: false // Ensure this is added correctly
     },
     {
         name: "Weapon",
         artist: "M4SONIC",
         imageSrc: "img/Sonic.jpg",
-        soundSrc: "audio/M4SONIC - Weapon.mp3"
-        liked: false // New property to track like status
+        soundSrc: "audio/M4SONIC - Weapon.mp3",
+        liked: false // Ensure this is added correctly
     }
 ];
 
