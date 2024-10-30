@@ -5,18 +5,21 @@ const songList = [
         artist: "Alan Walker",
         imageSrc: "img/Walker.jpg",
         soundSrc: "audio/Alan Walker - Fade.mp3"
+        liked: false // New property to track like status
     },
     {
         name: "Arc",
         artist: "NCS",
         imageSrc: "img/NCS.jpg",
         soundSrc: "audio/NCS - Ark.mp3"
+        liked: false // New property to track like status
     },
     {
         name: "Weapon",
         artist: "M4SONIC",
         imageSrc: "img/Sonic.jpg",
         soundSrc: "audio/M4SONIC - Weapon.mp3"
+        liked: false // New property to track like status
     }
 ];
 
@@ -60,21 +63,17 @@ let isRepeatOn = false;
 
 // Load and play the current song
 function loadCurrentSong() {
-    const currentSong = songList[currentSongIndex];
-    audioPlayer.src = currentSong.soundSrc;
-    document.getElementById('song-title').innerText = currentSong.name;
-    document.getElementById('song-artist').innerText = currentSong.artist;
-    document.getElementById('album-cover').src = currentSong.imageSrc;
+    const currentSong = songList[currentSongIndex]; // Get the current song
+    audioPlayer.src = currentSong.soundSrc; // Set the audio source
+    document.getElementById('song-title').innerText = currentSong.name; // Update song title
+    document.getElementById('song-artist').innerText = currentSong.artist; // Update artist name
+    document.getElementById('album-cover').src = currentSong.imageSrc; // Update album cover
     audioPlayer.load(); // Reload audio element with the new source
-    
-}
 
-// Function to reset the like button
-function resetLikeButton() {
+    // Set the like button state based on the current song's liked status
     const likeButton = document.querySelector('.like-button');
-    likeButton.classList.remove('liked'); // Remove the "liked" class
-    likeButton.querySelector('i').style.color = 'black'; // Reset the icon color
-    console.log("Like button reset");
+    likeButton.classList.toggle('liked', currentSong.liked); // Update class based on liked status
+    likeButton.querySelector('i').style.color = currentSong.liked ? 'red' : 'black'; // Set the color accordingly
 }
 
 // Toggle Play/Pause
@@ -177,13 +176,16 @@ function toggleMute() {
 
 function toggleLike() {
     const likeButton = document.querySelector('.like-button');
-    likedState = !likedState; // Toggle the liked state
+    const currentSong = songList[currentSongIndex];
 
-    // Change the "liked" class based on the new liked state
-    likeButton.classList.toggle('liked', likedState);
+    // Toggle the liked state
+    currentSong.liked = !currentSong.liked; // Toggle the liked state in the song object
+
+    // Update the UI based on the new liked state
+    likeButton.classList.toggle('liked', currentSong.liked);
 
     // Change icon color based on the liked state
-    if (likedState) {
+    if (currentSong.liked) {
         likeButton.querySelector('i').style.color = 'red'; // Change to red when liked
         console.log("Liked!");
     } else {
