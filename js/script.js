@@ -166,3 +166,14 @@ function toggleMute() {
     }
 }
 
+function toggleLike() {
+    const likeButton = document.querySelector('.like-button');
+    likeButton.classList.toggle('liked'); // Toggle the "liked" class
+
+    // Optional: Log or alert the "liked" state
+    if (likeButton.classList.contains('liked')) {
+        console.log("Liked!");
+    } else {
+        console.log("Unliked!");
+    }
+}
