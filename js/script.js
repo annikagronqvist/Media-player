@@ -175,20 +175,19 @@ function toggleMute() {
 
 function toggleLike() {
     const likeButton = document.querySelector('.like-button');
-    const currentSong = songList[currentSongIndex];
+    const currentSong = songList[currentSongIndex]; // Get the current song
 
-    // Toggle the liked state
-    currentSong.liked = !currentSong.liked; // Toggle the liked state in the song object
+    // Toggle the "liked" state
+    currentSong.liked = !currentSong.liked;
 
-    // Update the UI based on the new liked state
-    likeButton.classList.toggle('liked', currentSong.liked);
-
-    // Change icon color based on the liked state
+    // Change the button state visually
     if (currentSong.liked) {
-        likeButton.querySelector('i').style.color = 'red'; // Change to red when liked
+        likeButton.classList.add('liked'); // Add "liked" class
+        likeButton.querySelector('i').style.color = 'red'; // Change to red
         console.log("Liked!");
     } else {
-        likeButton.querySelector('i').style.color = 'black'; // Change back to default color
+        likeButton.classList.remove('liked'); // Remove "liked" class
+        likeButton.querySelector('i').style.color = 'black'; // Change back to default
         console.log("Unliked!");
     }
 }
