@@ -151,4 +151,18 @@ loadPlaylist();
 preloadImages();
 loadCurrentSong();
 
+function toggleMute() {
+    const audioPlayer = document.getElementById("audio-player");
+    const muteButtonIcon = document.querySelector(".mute-button i");
+
+    if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        muteButtonIcon.classList.remove("fa-volume-xmark"); // Mute icon
+        muteButtonIcon.classList.add("fa-volume-up"); // Unmute icon
+    } else {
+        audioPlayer.muted = true;
+        muteButtonIcon.classList.remove("fa-volume-up"); // Unmute icon
+        muteButtonIcon.classList.add("fa-volume-xmark"); // Mute icon
+    }
+}
 
