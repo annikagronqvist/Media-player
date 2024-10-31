@@ -49,6 +49,13 @@ function loadPlaylist() {
     });
 }
 
+// Function to format time in minutes and seconds
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' + secs : secs}`; // Format as MM:SS
+}
+
 // Initial Setup
 const audioPlayer = document.getElementById("audio-player");
 const playButton = document.getElementById("play-button");
@@ -69,6 +76,10 @@ function loadCurrentSong() {
     document.getElementById('song-artist').innerText = currentSong.artist; // Update artist name
     document.getElementById('album-cover').src = currentSong.imageSrc; // Update album cover
     audioPlayer.load(); // Reload audio element with the new source
+
+    // Initialize time display
+    document.getElementById('timer-now').innerText = '0:00'; // Start time
+    document.getElementById('timer-total').innerText = formatTime(audioPlayer.duration); // Update total time
 
     // Set the like button state based on the current song's liked status
     const likeButton = document.querySelector('.like-button');
@@ -102,10 +113,16 @@ audioPlayer.addEventListener("ended", function() {
     }
 });
 
-// Update progress bar during playback
+// Update progress bar and time display during playback
 audioPlayer.addEventListener('timeupdate', function() {
     const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     document.getElementById('progress-bar').value = progressPercentage || 0;
+
+    // Update the time display
+    const currentTime = formatTime(audioPlayer.currentTime);
+    const totalTime = formatTime(audioPlayer.duration);
+    document.getElementById('timer-now').innerText = currentTime;
+    document.getElementById('timer-total').innerText = totalTime;
 });
 
 // Seek functionality
