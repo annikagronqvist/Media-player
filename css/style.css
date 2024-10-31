@@ -8,8 +8,10 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    width: 400px; /* Set a fixed width */
+    height: 500px; /* Set a fixed height */
     margin: 0 auto;
+    overflow: hidden; /* Prevent overflow from expanding the wrapper */
 }
 
 .content-row {
@@ -70,6 +72,7 @@ body {
     font-size: 18px;
     color: #333;
 }
+
 #playlist {
     text-align: center; /* Center align text inside the playlist */
 }
@@ -82,6 +85,11 @@ body {
 
 .playlist-item:hover {
     color: #0056b3; /* Darker color on hover */
+}
+
+#playlist-items {
+    max-height: 150px; /* Set a maximum height for the playlist */
+    overflow-y: auto; /* Enable vertical scrolling if the playlist exceeds the max height */
 }
 
 .mute-button {
@@ -99,9 +107,11 @@ body {
 .mute-button i:hover {
     color: #ff0000; /* Optional: Change color on hover */
 }
+
 #player-area {
     position: relative; /* Allows absolute positioning of children within this area */
 }
+
 .like-button {
     position: absolute;
     top: 10px;
@@ -118,6 +128,7 @@ body {
 .like-button.liked {
     color: red; /* Changes color to red when "liked" */
 }
+
 #time-display {
     font-size: 14px;
     color: #555; /* Adjust as needed */
