@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Programmering - Audio Player</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmering - Audio Player</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="js/script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <audio id="audio-player">
@@ -14,14 +14,14 @@
     </audio>
 
     <div id="wrapper">
-       <div id="player-area" class="text-center">
-    <!-- Like Button -->
-    <div class="like-button" onclick="toggleLike()">
-        <i class="fa-solid fa-heart"></i> <!-- Heart icon for like -->
-    </div>
+        <div id="player-area" class="text-center">
+            <!-- Like Button -->
+            <div class="like-button" onclick="toggleLike()">
+                <i class="fa-solid fa-heart"></i> <!-- Heart icon for like -->
+            </div>
             <div class="mute-button" onclick="toggleMute()">
-    <i class="fa-solid fa-volume-xmark"></i> <!-- Mute icon -->
-</div>
+                <i class="fa-solid fa-volume-xmark"></i> <!-- Mute icon -->
+            </div>
             <div class="content-row now-playing p-20">
                 <span class="heading-text">Now Playing</span>
             </div>
@@ -38,9 +38,13 @@
             </div>
 
             <div class="content-row">
-                <span id="timer-now">0:00</span>            
                 <input type="range" class="width-100" id="progress-bar" min="0" max="100" step="1" value="0">
-                <span id="timer-total">0:00</span>
+
+                <!-- Time Display -->
+                <div id="time-display" style="display: flex; justify-content: space-between;">
+                    <span id="timer-now">0:00</span>            
+                    <span id="timer-total">0:00</span>
+                </div>
             </div>
 
             <div class="content-row icon-row p-20">
@@ -59,13 +63,13 @@
             </div>
 
             <div id="playlist">
-    <div class="content-row p-20 flex-center">
-        <span class="playlist-item">Playlist:</span>
-    </div>
-    <div id="playlist-items">
-        <!-- Playlist items will be generated here -->
-    </div>
-</div>
+                <div class="content-row p-20 flex-center">
+                    <span class="playlist-item">Playlist:</span>
+                </div>
+                <div id="playlist-items">
+                    <!-- Playlist items will be generated here -->
+                </div>
+            </div>
         </div>
     </div>
 </body>
