@@ -118,3 +118,8 @@ body {
 .like-button.liked {
     color: red; /* Changes color to red when "liked" */
 }
+#time-display {
+    font-size: 14px;
+    color: #555; /* Adjust as needed */
+    margin-top: 5px;
+}
