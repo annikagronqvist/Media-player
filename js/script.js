@@ -5,21 +5,21 @@ const songList = [
         artist: "Alan Walker",
         imageSrc: "img/Walker.jpg",
         soundSrc: "audio/Alan Walker - Fade.mp3",
-        liked: false // Ensure this is added correctly
+        liked: false
     },
     {
         name: "Arc",
         artist: "NCS",
         imageSrc: "img/NCS.jpg",
         soundSrc: "audio/NCS - Ark.mp3",
-        liked: false // Ensure this is added correctly
+        liked: false
     },
     {
         name: "Weapon",
         artist: "M4SONIC",
         imageSrc: "img/Sonic.jpg",
         soundSrc: "audio/M4SONIC - Weapon.mp3",
-        liked: false // Ensure this is added correctly
+        liked: false
     }
 ];
 
@@ -63,18 +63,19 @@ let isRepeatOn = false;
 
 // Load and play the current song
 function loadCurrentSong() {
-    const currentSong = songList[currentSongIndex]; // Get the current song
-    audioPlayer.src = currentSong.soundSrc; // Set the audio source
-    document.getElementById('song-title').innerText = currentSong.name; // Update song title
-    document.getElementById('song-artist').innerText = currentSong.artist; // Update artist name
-    document.getElementById('album-cover').src = currentSong.imageSrc; // Update album cover
-    audioPlayer.load(); // Reload audio element with the new source
+    const currentSong = songList[currentSongIndex];
+    audioPlayer.src = currentSong.soundSrc;
+    document.getElementById('song-title').innerText = currentSong.name;
+    document.getElementById('song-artist').innerText = currentSong.artist;
+    document.getElementById('album-cover').src = currentSong.imageSrc;
+    audioPlayer.load();
 
     // Set the like button state based on the current song's liked status
     const likeButton = document.querySelector('.like-button');
-    likeButton.classList.toggle('liked', currentSong.liked); // Update class based on liked status
-    likeButton.querySelector('i').style.color = currentSong.liked ? 'red' : 'black'; // Set the color accordingly
+    likeButton.classList.toggle('liked', currentSong.liked);
+    likeButton.querySelector('i').style.color = currentSong.liked ? 'red' : 'black';
 }
+
 // Toggle Play/Pause
 function togglePlay() {
     if (audioPlayer.paused) {
@@ -101,11 +102,26 @@ audioPlayer.addEventListener("ended", function() {
     }
 });
 
-// Update progress bar during playback
+// Update progress bar and time display during playback
 audioPlayer.addEventListener('timeupdate', function() {
+    const currentTime = Math.floor(audioPlayer.currentTime);
+    const duration = Math.floor(audioPlayer.duration);
+    
+    // Update the displayed current time and total duration
+    document.getElementById('timer-now').innerText = formatTime(currentTime);
+    document.getElementById('timer-total').innerText = formatTime(duration);
+    
+    // Update the progress bar
     const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     document.getElementById('progress-bar').value = progressPercentage || 0;
 });
+
+// Helper function to format time in MM:SS format
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
 
 // Seek functionality
 document.getElementById('progress-bar').addEventListener('input', function() {
@@ -164,30 +180,30 @@ function toggleMute() {
 
     if (audioPlayer.muted) {
         audioPlayer.muted = false;
-        muteButtonIcon.classList.remove("fa-volume-xmark"); // Mute icon
-        muteButtonIcon.classList.add("fa-volume-up"); // Unmute icon
+        muteButtonIcon.classList.remove("fa-volume-xmark");
+        muteButtonIcon.classList.add("fa-volume-up");
     } else {
         audioPlayer.muted = true;
-        muteButtonIcon.classList.remove("fa-volume-up"); // Unmute icon
-        muteButtonIcon.classList.add("fa-volume-xmark"); // Mute icon
+        muteButtonIcon.classList.remove("fa-volume-up");
+        muteButtonIcon.classList.add("fa-volume-xmark");
     }
 }
 
 function toggleLike() {
     const likeButton = document.querySelector('.like-button');
-    const currentSong = songList[currentSongIndex]; // Get the current song
+    const currentSong = songList[currentSongIndex];
 
     // Toggle the "liked" state
     currentSong.liked = !currentSong.liked;
 
     // Change the button state visually
     if (currentSong.liked) {
-        likeButton.classList.add('liked'); // Add "liked" class
-        likeButton.querySelector('i').style.color = 'red'; // Change to red
+        likeButton.classList.add('liked');
+        likeButton.querySelector('i').style.color = 'red';
         console.log("Liked!");
     } else {
-        likeButton.classList.remove('liked'); // Remove "liked" class
-        likeButton.querySelector('i').style.color = 'black'; // Change back to default
+        likeButton.classList.remove('liked');
+        likeButton.querySelector('i').style.color = 'black';
         console.log("Unliked!");
     }
 }
