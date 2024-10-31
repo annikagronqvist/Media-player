@@ -9,7 +9,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 400px; /* Set a fixed width */
-    height: 500px; /* Set a fixed height */
+    height: 450px; /* Set a fixed height */
     margin: 0 auto;
     overflow: hidden; /* Prevent overflow from expanding the wrapper */
 }
